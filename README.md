@@ -44,3 +44,26 @@ The `settings.py` reads the information from a `.credentials` file. The structur
 6. Check privacy statement to match scope of the webapp and its conformity to the General Data Protection Regulation (GDPR).  
 
 All done...
+
+
+
+
+# Devel and productive models
+
+The webapp provides operational modes for two environments: development and productive. To set the mode, the second line of the `.credentials` file is used as a switch. If it states `development`, then the `settings.py` defines the settings for developmental mode. If it contains any other statement, the webapp runs in productive mode. The differences between the two modes are mainly security and debugging related issues. The differing settings listed in the table below.
+
+variable | development | productive
+---------|-------------|-----------
+DEBUG | True | False
+Allowed_HOSTS | 127.0.0.1, localhost, testserver | Host IP
+Send E-Mail	| redirect to file backend | send regular
+
+
+# Known Issues
+
+
+## mysqlclient
+If the `mysqlclient` for python does not install correctly (on windows machines), follow this solution: https://stackoverflow.com/a/33544958
+
+
+

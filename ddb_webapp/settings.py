@@ -11,21 +11,41 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import posixpath
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
+with open('.credentials') as f:
+    CRED = f.read().splitlines() 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '4uhdfldzx)!412bsr4o&g^^s!+ojq2()tp8=5glk=idpy)vfih'
+SECRET_KEY = CRED[2]
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if CRED[1] == 'development':
+    # SECURITY WARNING: don't run with debug turned on in production!
+    DEBUG = True
+    ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'testserver']
 
-ALLOWED_HOSTS = []
+    # EMails are redirected to file
+    EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+    EMAIL_FILE_PATH =  'email_devel_inbox'
+
+
+if CRED[1] != 'development':
+    # SECURITY WARNING: don't run with debug turned on in production!
+    DEBUG = False
+    ALLOWED_HOSTS = CRED[3]
+
+    # Session Cookies and SSL
+    # Documentation: https://docs.djangoproject.com/en/2.2/ref/settings/#sessions
+    SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+    SESSION_COOKIE_HTTPONLY = True #Javascript kann nicht auf Cookies zugreifen
+    SESSION_COOKIE_SECURE = True #Session cookie only send over https connection geschickt
+    CSRF_COOKIE_SECURE = True
+    SECURE_SSL_REDIRECT  = True
+
+
 
 
 # Application definition
@@ -69,15 +89,18 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ddb_webapp.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': CRED[4],
+        'USER': CRED[5],
+        'PASSWORD': CRED[6],
+        'HOST': 'localhost',
+        'PORT': '',
+    },
 }
 
 
@@ -103,18 +126,55 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'de-de'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Berlin'
 
 USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# Login
+LOGIN_URL = 'login'
+LOGOUT_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/admin'
+
+
+
+#if PRODUCTIVE == False:
+#    STATIC_URL = '/static/'
+#    STATICFILES_DIRS = [
+#        os.path.join(BASE_DIR, "static"),
+#    ]
+#    STATIC_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['static_collection']))
+#    MEDIA_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep)))
+#    MEDIA_URL='/'
+
+#if PRODUCTIVE == True:
+#    # The URL which points to STATIC_ROOT
+#    STATIC_URL = '/static/'
+#    # Path where Django should look for static files for collectstatic
+#    STATICFILES_DIRS = [
+#        os.path.join(BASE_DIR, "static"), #Where static files are kept for development
+#    ]
+#    STATIC_ROOT = '/var/www/ddb_static'
+#    MEDIA_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep)))
+#    MEDIA_URL='/ddb_media/'
+
+#from django.core.mail import send_mail
+#send_mail(
+#    'subject here',
+#    'here is the message.',
+#    'fn101432@sowi.uni-stuttgart.de',
+#    ['to@example.com'],
+#    fail_silently=False,
+#)

@@ -2,6 +2,7 @@
 .credentials
 
 .vs/
+email_devel_inbox/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
