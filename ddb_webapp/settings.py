@@ -14,7 +14,8 @@ import os
 import posixpath
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+#BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 with open('.credentials') as f:
     CRED = f.read().splitlines() 
@@ -139,8 +140,10 @@ USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
-
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "deploy", "static_files")
+MEDIA_ROOT = os.path.join(BASE_DIR, "deploy", "media")
+MEDIA_URL='/media/'
 
 
 # Login
@@ -148,27 +151,6 @@ LOGIN_URL = 'login'
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_REDIRECT_URL = '/admin'
 
-
-
-#if PRODUCTIVE == False:
-#    STATIC_URL = '/static/'
-#    STATICFILES_DIRS = [
-#        os.path.join(BASE_DIR, "static"),
-#    ]
-#    STATIC_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['static_collection']))
-#    MEDIA_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep)))
-#    MEDIA_URL='/'
-
-#if PRODUCTIVE == True:
-#    # The URL which points to STATIC_ROOT
-#    STATIC_URL = '/static/'
-#    # Path where Django should look for static files for collectstatic
-#    STATICFILES_DIRS = [
-#        os.path.join(BASE_DIR, "static"), #Where static files are kept for development
-#    ]
-#    STATIC_ROOT = '/var/www/ddb_static'
-#    MEDIA_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep)))
-#    MEDIA_URL='/ddb_media/'
 
 #from django.core.mail import send_mail
 #send_mail(
