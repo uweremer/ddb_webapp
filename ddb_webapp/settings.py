@@ -21,7 +21,7 @@ if not os.path.exists('.credentials'):
     with open('test_credentials.txt') as f:
         CRED = f.read().splitlines() 
 
-if not os.path.exists('.credentials'):	
+if os.path.exists('.credentials'):	
     with open('.credentials') as f:
         CRED = f.read().splitlines() 
 
