@@ -45,18 +45,25 @@ The `settings.py` reads the information from a `.credentials` file. The structur
 
 All done...
 
+# Staticfiles
 
+To collect the static files for deployment with httpd, use the `collectstatic` function from within the virtual environment, in the folder where the `manage.py` lives in: `python manage.py collectstatic`.
 
+This collects all necessary static files for the admin, as well as those from the `staticfiles` folder and collects it within the `deploy` folder, which then has to be served by the httpd server. Jquery and Bootstrap for the non-Admin sites are served via CDN and are not to be included in the staticfiles.
 
-# Devel and productive models
+# Devel and productive modes
 
-The webapp provides operational modes for two environments: development and productive. To set the mode, the second line of the `.credentials` file is used as a switch. If it states `development`, then the `settings.py` defines the settings for developmental mode. If it contains any other statement, the webapp runs in productive mode. The differences between the two modes are mainly security and debugging related issues. The differing settings listed in the table below.
+The webapp provides operational modes for two environments: development and productive. To set the mode, the second line of the `.credentials` file is used as a switch. If it states `development`, then the `settings.py` defines the settings for developmental mode. If it contains any other statement, the webapp runs in productive mode. The differences between the two modes are mainly security and debugging related issues. The differing settings are listed in the table below.
 
 variable | development | productive
 ---------|-------------|-----------
 DEBUG | True | False
+Debug Toolbar | installed | not installed
 Allowed_HOSTS | 127.0.0.1, localhost, testserver | Host IP
+SSL | False | True  
+Session cookies | | secured
 Send E-Mail	| redirect to file backend | send regular
+
 
 
 # Known Issues

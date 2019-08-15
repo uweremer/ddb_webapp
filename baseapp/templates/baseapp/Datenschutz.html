@@ -1,0 +1,162 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+
+<h1>Datenschutzerkl&auml;rung</h1>
+
+<p>Auf dieser Seite informieren wir Sie &uuml;ber Art, Umfang und Zwecke der Erhebung und Verwendung personenbezogener Daten unseres Angebotes
+    "Datenbank dialogische Beteiligungsverfahren", kurz: <acronym title="Datenbank dialogische Beteiligungsverfahren" xml:lang="de" lang="de">ddb</acronym>.</p>
+ 
+<p>Je nach Art der Nutzung unseres Angebotes, werden durch uns unterschiedliche Daten von Ihnen erhoben und verarbeitet. 
+Dabei beschr&auml;nken wird uns auf das technisch n&ouml;tigste um den Dienst anbieten zu k&ouml;nnen.
+Nur wenn Sie Mitglied des Netzwerkes sind, werden zus&auml;tzlich bestimmte Daten auch ver&ouml;ffentlicht und weitergegeben. 
+Dies geschieht aber nur zu definierten Zwecken und auf Grundlage Ihrer expliziten Einwilligung, um die wir Sie bei der Aufnahme bitten werden.</p>
+
+<p>Sie haben das Recht, bei uns (siehe <a href="{% url 'contact' %}">Kontakt</a>) Auskunft &uuml;ber die zu Ihrer Person gespeicherten Daten 
+zu erhalten, unrichtig gespeicherte Daten berichtigen zu lassen und der Speicherung und Verarbeitung Ihrer Daten zu widersprechen.</p>
+
+<p> Wir &uuml;bernehmen keine Verantwortung f&uuml;r die Inhalte oder f&uuml;r die Privacy Policies von externen Ressourcen (externe Verlinkungen werden gekennzeichnet mit 
+<a href="#"><span class="glyphicon glyphicon-new-window"></span></a>).</p>
+
+<p>Unter folgenden Abschnitten finden Sie die ausf&uuml;hrlichen Erkl&auml;rungen zum Datenschutz:</p>
+<ul>
+    <li><a href="#webseite">1. Datenschutzerkl&auml;rung f&uuml;r den Besuch der Webseite <acronym title="Datenbank dialogische Beteiligungsverfahren" xml:lang="de" lang="de">ddb</acronym></a></li>
+    <li><a href="#newsletter">2. Datenschutzerkl&auml;rung zum Abonnement des Newsletters</a></li>
+    <li><a href="#kommunaldaten">3. Datenschutzerkl&auml;rung für die Validierung der Kommunaldaten</a></li>
+    <li><a href="#rechte">4. Widerspruchs- und Auskunftsrecht</a></li>
+</ul>
+
+
+
+<h3 id="webseite">1. Datenschutzerkl&auml;rung f&uuml;r den Besuch des Angebtes von <acronym title="Datenbank dialogische Beteiligungsverfahren" xml:lang="de" lang="de">ddb</acronym></h3>
+
+Bei jedem Zugriff auf eine Webseite aus dem Angebot von <acronym title="Datenbank dialogische Beteiligungsverfahren" xml:lang="de" lang="de">ddb</acronym> und 
+jedem Abruf einer Datei werden zu <strong>statistischen Zwecken</strong> folgende Daten <strong>protokolliert</strong> und <strong>ausgewertet</strong>:
+<ul>
+<li>Datum</li>
+<li>Uhrzeit</li>
+<li>auf die ersten beiden Bytes reduzierte IP-Adresse</li>
+<li>aktuell abgerufenes Dokument</li>
+<li>vorheriges abgerufenes Dokument (ohne Request-Parameter)</li>
+<li>Gr&ouml;&szlig;e der Datei (in Bytes)</li>
+<li>HTTP Status Code</li>
+</ul>
+<strong>Beispiel:</strong><br>
+<em>141.58.0.0 - - [01/Feb/2018:09:41:14 +0100] "GET /datenschutz.html HTTP/1.1" 200 11143 "http://www.befo-bw.de/"</em>
+<br><br>
+
+<table border="1" cellspacing="0" cellpadding="2">
+<tbody><tr>
+   <td valign="top"><strong>reduzierte IP</strong><!--/td-->
+   </td><td valign="top"><strong>Datum / Uhrzeit</strong></td>
+   <td valign="top"><strong>abgerufenes Dokument</strong></td>
+   <td valign="top"><strong>Status Code</strong></td>
+   <td valign="top"><strong>Dateigr&ouml;&szlig;e</strong></td>
+   <td valign="top"><strong>vorheriges Dokument</strong></td>
+</tr>
+<tr>
+   <td>141.58.0.0 - - </td>
+   <td>[01/Feb/2018:09:41:14 +0100] </td>
+   <td>"GET /datenschutz.html HTTP/1.1"</td>
+   <td> 200 </td>
+    <td>11143</td>
+    <td> "http://www.befo-bw.de/"</td>
+</tr>
+</tbody></table>
+
+<br>
+Die K&uuml;rzung der IP-Adresse um die letzten beiden Bytes erfolgt unmittelbar nach dem Erfassen der IP-Adresse.<br><strong>Beispiel:</strong> Aus 141.58.88.198 wird 141.58.0.0.
+
+<br><br>
+<strong>Personenbezogene Nutzerprofile k&ouml;nnen durch die reduziert gespeicherte IP-Adresse nicht gebildet werden.</strong>
+<br><br>
+Sie k&ouml;nnen alle allgemein zug&auml;nglichen Seiten benutzen, ohne dass Cookies gesetzt werden. Ebenso wenig werden andere
+Techniken verwendet, die dazu dienen, das Zugriffsverhalten der Nutzer nachvollziehen zu k&ouml;nnen. Lediglich beim Aufruf von Seiten, f&uuml;r die
+eine Anmeldung erforderlich ist, wird ein Session-Cookie gesetzt, das die Identit&auml;t der Browser-Sitzung auf Ihrem Rechner festh&auml;lt
+und nach Ende der Browser-Sitzung wieder von Ihrem Rechner gel&ouml;scht wird. Diese Information steht in sp&auml;teren
+Browser-Sitzungen nicht mehr zur Verf&uuml;gung. Ein Bezug auf die Person des Nutzers ist ausgeschlossen.
+<br><br>
+
+<p>Wir &uuml;bernehmen keine Verantwortung f&uuml;r die Inhalte oder f&uuml;r die Privacy Policies von externen Ressourcen (externe Verlinkungen werden gekennzeichnet mit 
+<a href="#"><span class="glyphicon glyphicon-new-window"></span></a>).</p>
+
+
+
+
+
+<h3 id="newsletter">2. Datenschutzerkl&auml;rung zum Abonnement des Newsletters</h3>
+
+<p>Unsere <a href="#">Newsletter</a> (im folgenden nur noch Newsletter) informieren in vier bis sechs w&ouml;chigem Abstand &uuml;ber Termine, Nachrichten, Ausschreibungen rund
+um das Thema Beteiligungsforschung und Beteilgungsforschende in Baden-W&uuml;rttemberg.</p>
+
+<p>Wenn Sie unseren Newsletter abonnieren, erheben und verarbeiten wir die von Ihnen im online-Formular angegebene E-Mail Adresse und den optional angegebenen Namen. 
+Diese Daten geben wir nicht an Dritte weiter und verwenden diese ausschlie&szlig;lich f&uuml;r den Versand des Newsletters. Es steht Ihnen frei, eine E-Mail Adresse zu verwenden, 
+die keinen R&uuml;ckschluss auf Ihre Person zul&auml;sst. Die &Uuml;bermittlung der Daten erfolgt &uuml;ber eine SSL-verschl&uuml;sselte Verbindung zum Server (Adresszeile beginnt mit 'https').</p>
+
+<p>Die Newsletteranmeldung wird &uuml;ber ein sogenanntes doppeltes Opt-In Verfahren gel&ouml;st. Dies setzt voraus, 
+    dass Sie zun&auml;chst Ihre E-Mailadresse angeben. Nach Bet&auml;tigen des Buttons "Anmelden" erhalten Sie eine 
+    Statusmeldung &uuml;ber den Eingang Ihres Wunsches angezeigt. Sie bekommen innerhalb der n&auml;chsten Minuten 
+    an die angegebene E-Mailadresse eine Nachricht. In dieser E-Mail ist ein Link mit Aktivierungsschl&uml;ssel 
+    angegeben, den Sie anklicken m&uuml;ssen, um Ihre Ab- oder Anmeldung abzuschlie&szlig;en. Erst danach sind Sie 
+    endg&uuml;ltig an- bzw. abgemeldet.</p>
+
+<p>Zur Dokumentation des Opt-In Verahrens erheben wir den Zeitpunkt der Eintragung der E-Mail Adresse, den Aktivierungsschl&uuml;ssel, sowie den Zeitpunkt der Aktivierung mit der IP-Adresse durch welche die Aktivierung erfolgt.
+Wird keine Aktiverung vorgenommen, wird der betreffende Datensatz nach einer Frist von drei Tagen gel&ouml;scht.</p>
+
+<p>Sie k&ouml;nnen sich jederzeit selbst vom Bezug des Newsletters abmelden. Sie haben das Recht, bei uns (siehe <a href="{% url 'contact' %}">Kontakt</a>) Auskunft &uuml;ber die zu Ihrer Person gespeicherten Daten 
+zu erhalten, unrichtig gespeicherte Daten berichtigen zu lassen und der Speicherung und Verarbeitung Ihrer Daten zu widersprechen.</p>
+
+
+
+<h3 id="netzwerk">3. Datenschutzerkl&auml;rung für die Validierung der Kommunaldaten</h3>
+
+<h4>3.1 Hintergrund und Zweck der Datenerhebung</h4>
+
+<p>Die Datenbank dialogische Beteiligungsverfahren ist ein Forschungsprojekt der Universit&auml;t Stuttgart, 
+    das vom Land Baden-W&uuml;rttemberg gef&ouml;rdert wird. Das Projekt erhebt nach wissenschaftlichen Kriterien
+    Daten zu dialogorientierten Beteiligungsverfahren und anderen Formen der B&uuml;rgerbeteiligung, die in Baden-W&uuml;rttemberg
+    stattfinden.</p>
+
+<p>Um die von uns gesammelten Daten zu validieren, d.h., zu pr&uuml;fen, ob wir die richtigen Daten f&uuml;r die jeweilige Kommune
+    gesammelt haben, bitten wir die Gemeindeverwaltung - in der Regel den B&uuml;rgermeister - oder einen genannten Ansprechpartner, 
+    einen Blick auf die Daten zu verwefen und m&ouml;gliche Fehler zu markieren und zu verbessern. Dazu stellen wir eine online-Eingabemaske bereit. 
+    Um die entsprechenden Personen zu Kontaktieren, erheben, speichern und verarbeiten wir personenbezogene Daten.</p>
+
+<h4>3.2 Um welche Daten handelt es sich?</h4>
+<p>Wir erheben und speichern folgende personenbezogene Daten: 
+    <ul>
+        <li>Kontaktdaten</li>
+        <li><ul>
+            <li>Name, Vorname</li>
+            <li>akademische Grade und Titel</li>
+            <li>Funktionsbezeichnung (z.B. B&uuml;rgermeister)</li>
+            <li>E-Mail Adresse</li>
+            <li>Telefonnummer</li>
+        </ul></li>
+        <li>Diese Daten stehen in Verbindung mit weiteren Daten, die dadurch einen 'personenbezug' erhalten: </li>
+        <li><ul>
+            <li>Anschrift der Gemeindeverwaltung</li>
+            <li>Webadresse der Gemeindeverwaltung</li>
+            <li>Daten &uuml;ber Beteiligungsverfahren</li>
+        </ul></li>
+    </ul>
+
+<h4>3.3 Wie werden die Daten erhoben und genutzt?</h4>
+<p>Die Daten werden durch uns aus &ouml;ffenlich zug&auml;nglichen Quellen (in der Regel die Homepage 
+    der Gemeinde) erhoben und gespeichert (&sect;&sect; 13 und 15 LDSG BW). 
+    Die betroffenen Personen werden von uns benachrichtigt und &uuml;ber den Inhalt der gespeicherten Daten in Kenntnis 
+    gesetzt (&sect; 14 LDSG BW). Es wird darauf hingewiesen, dass sie ein Recht auf Auskunft, Berichtigung der Daten haben.</p>
+
+<p>Die personenbezogenen Daten werden ausschlie&szlig;lich zum Zweck der Kontaktaufnahme genutzt, sie 
+    werden nicht ver&ouml;ffentlicht und werden nicht an Dritte weitergegeben.</p> 
+
+
+<h3 id="rechte">4. Widerspruchs- und Auskunftsrecht</h3>
+
+    <p><strong>ie haben das Recht, kostenfrei Auskunft von uns (siehe <a href="{% url 'contact' %}">Kontakt</a>) dar&uuml;ber zu verlangen, ob und welche Daten wir &uuml;ber Sie speichern, 
+    zu welchem Zweck wir die Daten verarbeiten, woher die Daten stammen (wenn dies gespeichert oder sonst bekannt ist), 
+    welche Daten wir ver&ouml;ffentlichen und an wen wir die Daten &uuml;bermitteln. Sie haben das Recht, falsche oder
+    unvollst&auml;ndige Daten korrigieren zu lassen.</strong></p> 
+
+{% endblock %}

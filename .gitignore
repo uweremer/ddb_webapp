@@ -3,7 +3,7 @@
 
 .vs/
 email_devel_inbox/
-.deploy/
+deploy/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

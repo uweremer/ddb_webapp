@@ -1,0 +1,39 @@
+{% extends "baseapp/layout.html" %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1>ddb Webapp</h1>
+    <p class="lead">Die ddb-Webapp ist das Datenerhebungs-Backend der 
+    <a href="http://www.uni-stuttgart.de/soz/dbb/" target="_blank">Datenbank dialogische Beteiligungsverfahren</a>. 
+    Die Webanwendung integriert die verschiedenen Arbeitsschritte und verteilt die anfallenden Arbeitspakete.</p>
+    <p><a href="http://www.uni-stuttgart.de/soz/ddb/webapp.html" class="btn btn-primary btn-large">Mehr &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Erhebungsstand</h2> <!--TODO: Badges f&uuml;r Erhebnungsstand-->
+        <p>
+            Bisher wurden Kommunen in Baden-W&uuml;rttemberg vollst&auml;ndig 
+            bearbeitet. Beteiligungsverfahren wurden dabei identifiziert. 
+            Die ausf&uuml;hrliche Darstellung des Erhebungsfortschritts gibt es hier. 
+        </p>
+        <p><a class="btn btn-default" href="#">Mehr &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Dokumentation</h2>
+        <p>
+        Die Dokumentation zur ddb-Webapp beschreibt Ziele und Ablauforganisation, sowie das Vorgehen bei der 
+            Entwicklung und die technsiche Umsetzung der Anwendung.
+        </p>
+        <p><a class="btn btn-warning" href="http://www.uni-stuttgart.de/soz/dbb/dokumentation.html">Fehlt noch &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Frontend</h2>
+        <p>
+        Die aufbereiteten Daten werden &uuml;ber ein separates Web-Frontend &ouml;ffentlich bereitgestellt. 
+        </p>
+        <p><a class="btn btn-warning" href="http://www.uni-stuttgart.de/soz/dbb/daten.html">Fehlt noch &raquo;</a></p>
+    </div>
+</div>
+
+{% endblock %}

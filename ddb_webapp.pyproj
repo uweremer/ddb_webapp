@@ -21,10 +21,25 @@
     <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="baseapp\templates\baseapp\about.html" />
+    <Content Include="baseapp\templates\baseapp\contact.html" />
+    <Content Include="baseapp\templates\baseapp\Datenschutz.html" />
+    <Content Include="baseapp\templates\baseapp\index.html" />
+    <Content Include="baseapp\templates\baseapp\layout.html" />
+    <Content Include="baseapp\templates\baseapp\login.html" />
+    <Content Include="baseapp\templates\baseapp\loginpartial.html" />
     <Content Include="credentials_template.txt" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="baseapp\admin.py" />
+    <Compile Include="baseapp\apps.py" />
+    <Compile Include="baseapp\migrations\__init__.py" />
+    <Compile Include="baseapp\models.py" />
+    <Compile Include="baseapp\tests.py" />
+    <Compile Include="baseapp\urls.py" />
+    <Compile Include="baseapp\views.py" />
+    <Compile Include="baseapp\__init__.py" />
     <Compile Include="ddb_webapp\settings.py" />
     <Compile Include="ddb_webapp\urls.py" />
     <Compile Include="ddb_webapp\wsgi.py" />
@@ -32,6 +47,10 @@
     <Compile Include="manage.py" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="baseapp\" />
+    <Folder Include="baseapp\migrations\" />
+    <Folder Include="baseapp\templates\" />
+    <Folder Include="baseapp\templates\baseapp\" />
     <Folder Include="ddb_webapp" />
   </ItemGroup>
   <ItemGroup>
@@ -48,35 +67,35 @@
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Django.targets" />
   <ProjectExtensions>
     <VisualStudio>
-    <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
-    <WebProjectProperties>
-        <AutoAssignPort>True</AutoAssignPort>
-        <UseCustomServer>True</UseCustomServer>
-        <CustomServerUrl>http://localhost</CustomServerUrl>
-        <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
-    </WebProjectProperties>
-    </FlavorProperties>
-    <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
-    <WebProjectProperties>
-        <StartPageUrl>
-        </StartPageUrl>
-        <StartAction>CurrentPage</StartAction>
-        <AspNetDebugging>True</AspNetDebugging>
-        <SilverlightDebugging>False</SilverlightDebugging>
-        <NativeDebugging>False</NativeDebugging>
-        <SQLDebugging>False</SQLDebugging>
-        <ExternalProgram>
-        </ExternalProgram>
-        <StartExternalURL>
-        </StartExternalURL>
-        <StartCmdLineArguments>
-        </StartCmdLineArguments>
-        <StartWorkingDirectory>
-        </StartWorkingDirectory>
-        <EnableENC>False</EnableENC>
-        <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
-    </WebProjectProperties>
-    </FlavorProperties>
-</VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <AutoAssignPort>True</AutoAssignPort>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
   </ProjectExtensions>
 </Project>
