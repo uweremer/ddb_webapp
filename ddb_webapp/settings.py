@@ -18,7 +18,7 @@ import posixpath
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 if not os.path.exists('.credentials'):
-    with open('test_credentials') as f:
+    with open('test_credentials.txt') as f:
         CRED = f.read().splitlines() 
 
 if not os.path.exists('.credentials'):	
