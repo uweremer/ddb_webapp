@@ -19,6 +19,7 @@ import baseapp.views
 
 urlpatterns = [
     path('', baseapp.views.home, name='home'),
+    path('projekt', baseapp.views.projektbeschreibung, name='projektbeschreibung'),
     path('datenschutz', baseapp.views.datenschutz, name='datenschutz'),
     path('kontakt', baseapp.views.contact, name='contact'),
     path('admin/', admin.site.urls),

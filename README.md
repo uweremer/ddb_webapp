@@ -1,10 +1,10 @@
 # ddb_webapp
 A Django project for collecting and disseminating data on participatory procedures
 
-![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django.svg) ![Django Version](https://img.shields.io/badge/Django-2.2-blue.svg) [![Build Status](https://travis-ci.org/uweremer/ddb_webapp.svg?branch=master)](https://travis-ci.org/uweremer/ddb_webapp)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django.svg) ![Django Version](https://img.shields.io/badge/Django-3.0-blue.svg) [![Build Status](https://travis-ci.org/uweremer/ddb_webapp.svg?branch=master)](https://travis-ci.org/uweremer/ddb_webapp)
 
 ## Preambel
-This ist the Django root project<sup>[1](#myfootnote1)</sup> for the web application “[ddb webapp](https://github.com/uweremer/ddb_webapp)”, the online website and tools, developed in the research project “database dialogue-oriented citizen participation” (“ddb - **D**atenbank **d**ialogorientierte **B**eteiligungsverfahren”). The project was conducted from April 2017 to March 2019 at the [Institute for Social Sciences]( https://www.sowi.uni-stuttgart.de/index.html) at the University of Stuttgart. It was funded by the state government of Baden-Württemberg. A short description of the project can be found [here](https://www.sowi.uni-stuttgart.de/abteilungen/ps/forschung/dbb/) (German only). The webapp is currently running at [www.beteiligungslandschaft-bw.de](www.beteiligungslandschaft-bw.de).
+This ist the Django root project<sup>[1](#myfootnote1)</sup> for the web application “[ddb webapp](https://github.com/uweremer/ddb_webapp)”, the online website and tools, developed in the research project “database dialogue-oriented citizen participation” (“ddb - **D**atenbank **d**ialogorientierte **B**eteiligungsverfahren”). The project was conducted from April 2017 to March 2019 at the [Institute for Social Sciences]( https://www.sowi.uni-stuttgart.de/index.html) at the University of Stuttgart. The subsequent project DDB-II began in October 2019 and will end in September 2021. Both prjects are funded by the state government of Baden-Württemberg. A short description of the project can be found [here](https://www.sowi.uni-stuttgart.de/abteilungen/ps/forschung/dbb/) (German only). The webapp is currently running at [www.beteiligungslandschaft-bw.de](www.beteiligungslandschaft-bw.de).
 
 <sub><sup>
 <a name="myfootnote1"><sup>1</sup></a>: Please see the Django documentation for the difference between  [Project]( https://docs.djangoproject.com/en/2.2/intro/tutorial01/#creating-a-project) and [App](https://docs.djangoproject.com/en/2.2/intro/tutorial01/#creating-the-polls-app).</sup></sub>
@@ -25,23 +25,30 @@ Therefore, this base web application “[ddb_webapp]( https://github.com/uwereme
 
 
 ## Description
-This Django project contains the initial code and settings to setup the Django environment for the basic [ddb_webapp]( https://github.com/uweremer/ddb_webapp). Its initial app `app` includes static pages for the landing page (index), project description, contact, and data privacy statement (conforming to the General Data Protection Regulation, GDPR / DSGVO). In addition, the app contains models, views and admin pages for the municipalities (basic information, contact, processing status etc.).  
+This Django project contains the initial code and settings to setup the Django environment for the basic [ddb_webapp]( https://github.com/uweremer/ddb_webapp). Its initial app `baseapp` includes static pages for the landing page (index), project description, contact, and data privacy statement (conforming to the General Data Protection Regulation, GDPR / DSGVO). In addition, the app contains models, views and admin pages for the municipalities (basic information, contact, processing status etc.).  
 
 
 ## Prerequisites
-MariaDB >= 10
-Apache httpd server
+The webapp was developed and tested for the following setup:
+
+
+- Python 3.7  
+- Django 3.0  
+- MariaDB 10  
+- Apache httpd 2.5  
 
 
 ## Usage
 1. Pull the latest release of the project from github: 
-2. Create an virtual python 3.6 environment and install dependencies from the `requirements.txt`
+2. Create an virtual python 3.7 environment and install dependencies from the `requirements.txt`
 3. Set role of the webapp within `settings.py`
 4. Set credentials and environmental variables for `settings.py` within `.credentials`
 
 The `settings.py` reads the information from a `.credentials` file. The structure of the file is given in the `credentials_template.txt`. The a `.credentials` must never be under version control or shared otherwise!
-5. migrate and populate database
+5. Create database, then migrate and populate the database 
 6. Check privacy statement to match scope of the webapp and its conformity to the General Data Protection Regulation (GDPR).  
+7. Setup Apache server with mod_wsgi (see [Django-docs](https://docs.djangoproject.com/en/3.0/howto/deployment/wsgi/modwsgi/) and e.g. this [tutorial](https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-apache-and-mod_wsgi-on-ubuntu-14-04))  
+
 
 All done...
 

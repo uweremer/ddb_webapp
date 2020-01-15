@@ -1,0 +1,42 @@
+{% extends "baseapp/layout.html" %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1>Datenbank dialogische Beteiligungsverfahren</h1>
+    <p class="lead">Ein Forschungsprojekt zur Vermessung der dialogischen Beteiligungslandschaft in Baden-W&uuml;rttemberg.</p>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <h2>Das Projekt</h2>
+        <p>In vielen St&auml;dten und Gemeinden in Baden-W&uuml;rttemberg gibt es bereits seit vielen Jahren informelle Formen der B&uuml;rgerbeteiligung, die &uuml;ber die gesetzlich vorgeschriebenen Formen hinaus gehen. M&ouml;chte man einen &uuml;berblick &uuml;ber die Beteiligungslandschaft in Baden-W&uuml;rttemberg erhalten, so findet sich aber keine zentrale Dokumentationsstelle, bei der systematisch zu Art und Umfang der vielf&auml;ltigen Beteiligungsverfahren recherchiert werden kann. W&auml;hrend zu B&uuml;rgerbegehren und B&uuml;rgerentscheiden &uuml;ber die <a href="http://www.datenbank-buergerbegehren.info/"><span class="fa fa-external-link"></span> Datenbank B&uuml;rgerbegehren</a> der Forschungsstelle B&uuml;rgerbeteiligung des <acronym title="Institut f&uuml;r Demokratie- und Partizipationsforschung der Bergischen Universit&auml;t Wuppertal" xml:lang="de" lang="de">IDPF</acronym> ein guter Zugang zu deutschlandweiten Daten besteht, gibt es im Bereich der informellen Beteiligungsverfahren noch keinerlei systematische Ans&auml;tze zur Dokumentation und Erfassung der unterschiedlichen, konkret stattfindenden Verfahren. Stattdessen bestehen vereinzelte Sammlungen, die sich jedoch hinsichtlich Umfang (r&auml;umlich wie inhaltlich) und Zweck unterscheiden. Hinzu kommen mangelnde Aktualit&auml;t und Vollst&auml;ndigkeit der Daten, die es nicht nur der Forschung erschweren, einen umfassenden Blick auf die Beteiligungslandschaft in Baden-W&uuml;rttemberg - &uuml;ber die Betrachtung des Einzelfalles hinaus - zu erhalten.</p>
+        <p>Die Beteiligungsforschung verfolgt drei Ziele. Das erste ist, die Beteiligungslandschaft zu beschreiben: Die Forschung soll Auskunft dar&uuml;ber geben, wann, wo, in welcher Form und zu welchen Themen B&uuml;rgerbeteiligung stattfindet und welche Entwicklungen sich im Zeitverlauf darstellen. Das zweite Ziel besteht darin, Theorien &uuml;ber Ursachen und Wirkungen im Kontext Beteiligungsverfahren zu entwickeln und zu testen. Drittens sollen schlie&szlig;lich aus den gewonnenen Erkenntnissen praktische Empfehlungen abgeleitet werden, die auf einer breiten und belastbaren Datenbasis beruhen. Erfahrungen mit Leuchtturmprojekten, Einzelfallstudien und einige Vergleichsstudien mit kleinen Fallzahlen bieten zwar erste Erkenntnisse - um die genannten Ziele zu erreichen ist jedoch erforderlich, dass die Grundgesamtheit der Beteiligungsverfahren bekannt ist, oder zumindest valide abgesch&auml;tzt werden kann. Beides ist bisher nicht der Fall, mit Folgen f&uuml;r das Forschungsdesign und insbesondere f&uuml;r die Auswahl der (Vergleichs-)F&auml;lle.</p>
+        <p>Das Projekt der Universit&auml;t Stuttgart versucht diese L&uuml;cke zu schlie&szlig;en, indem es eine Vollerhebung der Beteiligungslandschaft in Baden-W&uuml;rttemberg anstrebt. Mit einer teilautomatisierten onlinebasierten Erhebung, sollen sattfindende Beteiligungsverfahren identifiziert werden. Die gewonnenen Daten werden rekursiv genutzt, um den Suchalgorithmus zu optimieren und mittels maschinellem Lernen den Automatisierungsanteil der Datenerhebung zu erh&ouml;hen. Als Datenbank sollen die gefundenen Treffer schon w&auml;hrend der Erhebungsphase der (Fach-)&ouml;ffentlichkeit zur Verf&uuml;gung stehen.</p>
+        <h2>Die Umsetzung</h2>
+        <p>Ausgangspunkt f&uuml;r die Erhebung der Beteiligungsverfahren ist eine Recherchematrix, nach welcher sich Suchanfragen systematisch abarbeiten lassen. Die Recherchematrix bildet die Grundlage f&uuml;r die Suchstrategie und besteht aus den drei Vektoren: Verfahrensbezeichnung, Ort und Suchraum. Die Elemente der Vektoren werden durch Permutation ohne Wiederholung kombiniert und bilden so die jeweiligen Suchanfragen. Die Vektoren selbst bestehen aus den folgenden Inhalten, die zuvor festgelegt werden m&uuml;ssen:</p>
+        <ul>
+            <li>Verfahrensbezeichnung: Wortliste m&ouml;glicher Bezeichnungen von Beteiligungsverfahren</li>
+            <li>Ort: Namen der Kommunen, einschlie&szlig;lich Teilorte und Stadtteile</li>
+            <li>Suchraum: Liste der f&uuml;r die Anfrage zu nutzenden Online-Quellen, defacto: Google und Bing</li>
+        </ul>    
+        <p>Zur Suche werden die Anfragen in http-Requests &uuml;berf&uuml;hrt, die dann von der Suchmaschine beantwortet werden. Aufgrund der hohen Anzahl an Suchanfragen (~70.000) erfolgt die Abfrage bereits automatisiert mittels Skript und Programmierschnittstelle (API - Application Programming Interface). Die Suchanfragen werden mittels "Google Custom Search API" durchgef&uuml;hrt. .Die automatisierten Suchanfragen geben jeweils einen Datensatz aus Suchtreffern zur&uuml;ck (theoretische max. 1,5 Mio.), die f&uuml;r jede gefundene Webseite deren URL, den Seitentitel und einen Textschnipsel ("Snippet") enthalten. Der Textschnipsel ist ein kurzer Ausschnitt aus der Webseite, der den Kontext der Suchbegriffe auf der Webseite wiedergibt. Die Struktur der Ergebnisse der automatisierten Abfrage gleicht also der einer manuellen Recherche. Der Unterschied ist, dass direkt ein Datensatz produziert wird.</p>
+        <p>Die Resultate aller Anfragen werden dann in einer relationalen Datenbank zusammengef&uuml;hrt und dem jeweiligen Ort und Suchbegriff zugeordnet. Die vorliegenden Suchtreffer werden zuerst automatisch mit einer Blacklist abgeglichen. Die verbleibenden Treffer werden dann zun&auml;chst auf Basis des Titels der Webseite und dem Inhalt des Textschnipsels durch Hilfskr&auml;fte manuell kodiert. Bei dieser ersten Kodierung wird unterschieden zwischen eindeutig irrelevanten Treffern und potentiell relevanten Treffern. Nur die Webseiten der potentiell relevanten Treffer werden einzeln aufgerufen und durchgesehen. Treffer die dann inhaltlich nicht relevant sind, werden ausgeschlossen. Treffer die tats&auml;chlich relevant sind werden redaktionell ausgewertet, d.h., die dort vorgefundenen Beteiligungsverfahren werden in einer neuen Tabelle gesammelt und die zu erhebenden Merkmale dokumentiert. Werden mehrere Beteiligungsverfahren identifiziert die zu einem &uuml;bergeordneten Beteiligungsprozess geh&ouml;ren, wird in einer separaten Tabelle ein Eintrag f&uuml;r den Beteiligungsprozess angelegt.</p>
+    
+    
+    
+
+
+
+
+    </div>
+    <div class="col-md-4">
+        <h2>Dokumentation</h2>
+        <p>
+        Die Dokumentation zur ddb-Webapp beschreibt Ziele und Ablauforganisation, sowie das Vorgehen bei der 
+            Entwicklung und die technsiche Umsetzung der Anwendung.
+        </p>
+        <p><a class="btn btn-warning" href="http://www.uni-stuttgart.de/soz/dbb/dokumentation.html">Fehlt noch &raquo;</a></p>
+    </div>
+</div>
+
+{% endblock %}

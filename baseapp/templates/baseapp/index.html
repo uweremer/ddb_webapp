@@ -11,28 +11,25 @@
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Erhebungsstand</h2> <!--TODO: Badges f&uuml;r Erhebnungsstand-->
+        <h2>Datenbestand</h2> <!--TODO: Badges f&uuml;r Erhebnungsstand-->
         <p>
-            Bisher wurden Kommunen in Baden-W&uuml;rttemberg vollst&auml;ndig 
-            bearbeitet. Beteiligungsverfahren wurden dabei identifiziert. 
-            Die ausf&uuml;hrliche Darstellung des Erhebungsfortschritts gibt es hier. 
+                Bisher wurden 9999 Beteiligungsereignisse in 9999 Kommunen in Baden-W&uuml;rttemberg identifiziert. Sie k&ouml;nnen den Datenbestand gerne erkunden. Verschiedene Such- und Filterm&ouml;glichkeiten helfen Ihnen zu finden, was Sie interessiert.   
+                F&uuml; weitergehende Auswertungen steht ein Scientific Use File zur Verf&uuml;gung.
         </p>
-        <p><a class="btn btn-default" href="#">Mehr &raquo;</a></p>
+        <p><a class="btn btn-warning" href="#">Fehlt noch &raquo;</a></p>
     </div>
     <div class="col-md-4">
-        <h2>Dokumentation</h2>
-        <p>
-        Die Dokumentation zur ddb-Webapp beschreibt Ziele und Ablauforganisation, sowie das Vorgehen bei der 
-            Entwicklung und die technsiche Umsetzung der Anwendung.
-        </p>
-        <p><a class="btn btn-warning" href="http://www.uni-stuttgart.de/soz/dbb/dokumentation.html">Fehlt noch &raquo;</a></p>
+        <h2>&Uuml;ber das Projekt</h2>
+        <p>Die Auswertungen auf dieser Seite basieren auf den Daten der <em>Datenbank dialogorientierte Beteiligunsverfahren</em> (<acronym title="Datenbank dialogorientierte Beteiligungsverfahren" xml:lang="de" lang="de">DDB</acronym>), die im Rahmen von Drittmittelforschungs am <a href="https://www.sowi.uni-stuttgart.de/" target="_blank">Institut f&uuml;r Sozialwissenschaften</a> der Universit&auml;t Stuttgart gesammelt werden.  </p>
+        <p><a class="btn btn-secondary" href="{% url 'projektbeschreibung' %}">Mehr &raquo;</a></p>
     </div>
     <div class="col-md-4">
-        <h2>Frontend</h2>
+        <h2>Hinter den Kulissen</h2>
         <p>
-        Die aufbereiteten Daten werden &uuml;ber ein separates Web-Frontend &ouml;ffentlich bereitgestellt. 
+        Eine speziell f&uuml;r das Projekt entwickelte Anwendung integriert die verschiedenen Schritte der Datenerhebung und Aufbereitung. Es handelt sich um eine Webanwendung die in Python auf Basis des <a href="https://www.djangoproject.com/" target="_blank"><span class="fa fa-external-link"></span> Django</a> Webframeworks geschrieben wurde. 
+        Eine ausf&uuml;hrliche Dokumentation und den Code gibt es auf Github <span class="fa fa-github"></span>.
         </p>
-        <p><a class="btn btn-warning" href="http://www.uni-stuttgart.de/soz/dbb/daten.html">Fehlt noch &raquo;</a></p>
+        <p><a class="btn btn-secondary" href="https://github.com/uweremer/ddb_webapp" target="_blank"><span class="fa fa-external-link"></span> Zum Repository &raquo;</a></p>
     </div>
 </div>
 

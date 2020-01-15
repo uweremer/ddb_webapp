@@ -25,9 +25,9 @@
     <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="baseapp\templates\baseapp\about.html" />
     <Content Include="baseapp\templates\baseapp\contact.html" />
     <Content Include="baseapp\templates\baseapp\Datenschutz.html" />
+    <Content Include="baseapp\templates\baseapp\projektbeschreibung.html" />
     <Content Include="baseapp\templates\baseapp\index.html" />
     <Content Include="baseapp\templates\baseapp\layout.html" />
     <Content Include="baseapp\templates\baseapp\login.html" />

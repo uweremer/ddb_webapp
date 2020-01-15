@@ -17,6 +17,18 @@ def home(request):
         }
     )
 
+def projektbeschreibung(request):
+    """Renders the Projektbeschreibungs page."""
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'baseapp/projektbeschreibung.html',
+        {
+            'title': 'Projekt',
+            'year':datetime.now().year,
+        }
+    )
+
 def contact(request):
     """Renders the Kontakt page."""
     assert isinstance(request, HttpRequest)

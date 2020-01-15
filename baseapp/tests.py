@@ -17,3 +17,6 @@ class ViewTests(TestCase):
     def test_datenschutz(self):
         response = self.client.get(reverse('datenschutz'))
         self.assertEqual(response.status_code, 200)        
+    def test_projektbeschreibung(self):
+        response = self.client.get(reverse('projektbeschreibung'))
+        self.assertEqual(response.status_code, 200)        
