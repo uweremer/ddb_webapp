@@ -5,6 +5,7 @@ env/
 .vs/
 email_devel_inbox/
 deploy/
+obj/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
