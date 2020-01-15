@@ -1,7 +1,7 @@
 # ddb_webapp
 A Django project for collecting and disseminating data on participatory procedures
 
-![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django.svg) ![Django Version](https://img.shields.io/badge/Django-2.2-blue.svg) [![Build Status](https://travis-ci.org/uweremer/ddb_webapp.svg?branch=master)](https://travis-ci.org/uweremer/ddb_webapp)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django.svg) ![Django Version](https://img.shields.io/badge/Django-3.0-blue.svg) [![Build Status](https://travis-ci.org/uweremer/ddb_webapp.svg?branch=master)](https://travis-ci.org/uweremer/ddb_webapp)
 
 ## Preambel
 This ist the Django root project<sup>[1](#myfootnote1)</sup> for the web application “[ddb webapp](https://github.com/uweremer/ddb_webapp)”, the online website and tools, developed in the research project “database dialogue-oriented citizen participation” (“ddb - **D**atenbank **d**ialogorientierte **B**eteiligungsverfahren”). The project was conducted from April 2017 to March 2019 at the [Institute for Social Sciences]( https://www.sowi.uni-stuttgart.de/index.html) at the University of Stuttgart. It was funded by the state government of Baden-Württemberg. A short description of the project can be found [here](https://www.sowi.uni-stuttgart.de/abteilungen/ps/forschung/dbb/) (German only). The webapp is currently running at [www.beteiligungslandschaft-bw.de](www.beteiligungslandschaft-bw.de).
