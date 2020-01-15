@@ -1,6 +1,7 @@
 # Credentials
 .credentials
 
+env/
 .vs/
 email_devel_inbox/
 deploy/

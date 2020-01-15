@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }} - ddb Webapp</title>
-    {% load staticfiles %}
+    <title>{{ title }} - DDB</title>
+    {% load static %}
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
 </head>
 
@@ -25,7 +25,7 @@
         <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" href="{% url 'contact' %}">Kontakt</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -62,7 +62,7 @@
                     <p>&copy; {{ year }} - <a href="http://www.uni-stuttgart.de/soz/dbb/" target="_blank">Universität Stuttgart, Sowi I</a></p>
                 </div>
                 <div class="col-md-6">
-                    <p class="text-right"><a href="#">Datenschutz</a> / <a href="http://www.uni-stuttgart.de/impressum" target="_blank">Impressum</a></p>
+                    <p class="text-right"><a href="{% url 'datenschutz' %}">Datenschutz</a> / <a href="http://www.uni-stuttgart.de/impressum" target="_blank">Impressum</a></p>
                 </div>
             </div> 
             </div>

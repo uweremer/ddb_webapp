@@ -16,3 +16,27 @@ def home(request):
             'year':datetime.now().year,
         }
     )
+
+def contact(request):
+    """Renders the Kontakt page."""
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'baseapp/contact.html',
+        {
+            'title': 'Kontakt',
+            'year':datetime.now().year,
+        }
+    )
+ 
+def datenschutz(request):
+    """Renders the Datenschutz page."""
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'baseapp/datenschutz.html',
+        {
+            'title': 'Datenschutz',
+            'year':datetime.now().year,
+        }
+    )

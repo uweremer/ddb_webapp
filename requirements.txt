@@ -1,2 +1,2 @@
-Django >= 2.2
+Django == 2.2
 mysqlclient >= 1.4.4

@@ -1,65 +1,54 @@
-{% extends "app/layout.html" %}
+{% extends "baseapp/layout.html" %}
 
 {% block content %}
-{% load staticfiles %}
+{% load static %}
 
 <h2>{{ title }}</h2>
 <div itemscope itemtype="http://schema.org/Organization">
     <div class="row">
         <div class="col-md-6">
             <div class="col-xs-12" style="height:50px;"></div>
-
-            <img itemprop="logo" src="{% static '/graphics/falter.png' %}" height="100" alt="Logo der Datenbank dialogische beteiligungsverfahren" height="50" />
-
-            <div class="col-xs-12" style="height:50px;"></div>
-            </div>
-        <div class="col-md-6">
-        </div>
-        </div>
-
-
-                    <h3>Projekt "<span itemprop="name">Datenbank dialogische Beteiligungsverfahren</span>"<br /></p></h3>
-                <div class="row">
-                <div class="col-md-8">
-                    <span itemprop="parentOrganization">Universit&auml;t Stuttgart</span><br />
-                    <span itemprop="department">Institut f&uuml;r Sozialwissenschaften, Abt. Sowi I</span><br />
-                    <div itemprop="location" itemscope itemtype="http://schema.org/Place">
-                        <address itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-                            <span itemprop="streetAddress">Breitscheidstra&szlig;e 2</span><br />
-                            <span itemprop="postalCode">70174</span> <span itemprop="addressLocality">Stuttgart</span><br />
-                        </address>
-                        <div itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">
-                            <meta itemprop="latitude" content="48.780719" />
-                            <meta itemprop="longitude" content="9.171715" />
-                        </div>
-                    </div>
-                    <h4>Ansprechpartner</h4>
-                    <div itemprop="member" itemscope itemtype="http://schema.org/Person">
-                        <a href="https://www.uni-stuttgart.de/soz/avps/mitarbeiter/vetter.html" itemprop="url" target="_blank"><span itemprop="honorificPrefix">Prof. Dr.</span><span itemprop="name">Angelika Vetter</span></a>
-                    </div>
-                    <div itemprop="member" itemscope itemtype="http://schema.org/Person">
-                        <a href="https://www.uni-stuttgart.de/soz/avps/mitarbeiter/remer-bollow.html" itemprop="url" target="_blank"><span itemprop="name">Uwe Remer-Bollow</span>, <span itemprop="honorificSuffix">M.A.</span></a>
-                    </div>
-                    <div class="col-xs-12" style="height:50px;"></div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="pull-right">
-                        <img class="hidden-xs" src="{% static '/graphics/Grosses_Landeswappen_Baden-Wuerttemberg.svg' %}" height="60" alt="Gro&szlig;es Landeswappen des Landes Baden-W&uuml;rttemberg" />
-                        <img class="hidden-lg hidden-md hidden-sm" src="{% static '/graphics/Grosses_Landeswappen_Baden-Wuerttemberg.svg' %}" height="35" alt="Gro&szlig;es Landeswappen des Landes Baden-W&uuml;rttemberg"/>                     
-                    </div>
-                    <div>
-                        Die Datenbak dialogische Beteiligungsverfahren wird gef&ouml;rdert vom Land Baden-W&uuml;rttemberg
-                    </div>
-
-
-                    </div>
-
-                    
-
-
-            </div>
+				<img itemprop="logo" src="{% static '/graphics/falter.png' %}" height="100" alt="Logo der Datenbank dialogische Beteiligungsverfahren" height="50" />
+				<div class="col-xs-12" style="height:50px;"></div>
+				</div>
+				<div class="col-md-6">
+				</div>
+			</div>
+            <h3>Projekt "<span itemprop="name">Datenbank dialogische Beteiligungsverfahren II (DDB-II)</span>"<br /></p></h3>
+			<div class="row">
+				<div class="col-md-6">
+					<span itemprop="parentOrganization">Universit&auml;t Stuttgart</span><br />
+					<span itemprop="department">Institut f&uuml;r Sozialwissenschaften, Abt. Sowi I</span><br />
+					<div itemprop="location" itemscope itemtype="http://schema.org/Place">
+						<address itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+							<span itemprop="streetAddress">Breitscheidstra&szlig;e 2</span><br />
+							<span itemprop="postalCode">70174</span> <span itemprop="addressLocality">Stuttgart</span><br />
+						</address>
+						<div itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">
+							<meta itemprop="latitude" content="48.780719" />
+							<meta itemprop="longitude" content="9.171715" />
+						</div>
+					</div>
+					<h4>Ansprechpartner</h4>
+					<div itemprop="member" itemscope itemtype="http://schema.org/Person">
+						<a href="https://www.sowi.uni-stuttgart.de/institut/team/Vetter" itemprop="url" target="_blank"><span itemprop="honorificPrefix">Prof. Dr. </span><span itemprop="name">Angelika Vetter</span></a>
+					</div>
+					<div itemprop="member" itemscope itemtype="http://schema.org/Person">
+						<a href="https://www.sowi.uni-stuttgart.de/institut/team/Remer-Bollow/" itemprop="url" target="_blank"><span itemprop="name">Uwe Remer</span>, <span itemprop="honorificSuffix">M.A.</span></a>
+					</div>
+					<div class="col-xs-12" style="height:50px;">
+					</div>
+				</div>
+				<div class="col-md-6">
+<div class="media">
+  <img src="{% static '/graphics/Grosses_Landeswappen_Baden-Wuerttemberg.svg' %}" height="60" class="align-self-start mr-3" alt="...">
+  <div class="media-body">
+    <p>Die Datenbank dialogische Beteiligungsverfahren wird gef&ouml;rdert vom <a href="https://stm.baden-wuerttemberg.de"  target="_blank"><span class="glyphicon glyphicon-new-window"></span>Land Baden-W&uuml;rttemberg</a></p>
+  </div>
+</div>
+</div>
+</div>
 
 
 
-            {% endblock %}
+{% endblock %}

@@ -1,4 +1,4 @@
-﻿{% extends "app/layout.html" %}
+﻿{% extends "baseapp/layout.html" %}
 
 {% block content %}
 
@@ -43,7 +43,7 @@ jedem Abruf einer Datei werden zu <strong>statistischen Zwecken</strong> folgend
 <li>HTTP Status Code</li>
 </ul>
 <strong>Beispiel:</strong><br>
-<em>141.58.0.0 - - [01/Feb/2018:09:41:14 +0100] "GET /datenschutz.html HTTP/1.1" 200 11143 "http://www.befo-bw.de/"</em>
+<em>141.58.0.0 - - [01/Feb/2018:09:41:14 +0100] "GET /datenschutz.html HTTP/1.1" 200 11143 "http://www.beteiligungslandschaft-bw.de/"</em>
 <br><br>
 
 <table border="1" cellspacing="0" cellpadding="2">
@@ -61,7 +61,7 @@ jedem Abruf einer Datei werden zu <strong>statistischen Zwecken</strong> folgend
    <td>"GET /datenschutz.html HTTP/1.1"</td>
    <td> 200 </td>
     <td>11143</td>
-    <td> "http://www.befo-bw.de/"</td>
+    <td> "http://www.beteiligungslandschaft-bw.de/"</td>
 </tr>
 </tbody></table>
 
@@ -154,7 +154,7 @@ zu erhalten, unrichtig gespeicherte Daten berichtigen zu lassen und der Speicher
 
 <h3 id="rechte">4. Widerspruchs- und Auskunftsrecht</h3>
 
-    <p><strong>ie haben das Recht, kostenfrei Auskunft von uns (siehe <a href="{% url 'contact' %}">Kontakt</a>) dar&uuml;ber zu verlangen, ob und welche Daten wir &uuml;ber Sie speichern, 
+    <p><strong>Sie haben das Recht, kostenfrei Auskunft von uns (siehe <a href="{% url 'contact' %}">Kontakt</a>) dar&uuml;ber zu verlangen, ob und welche Daten wir &uuml;ber Sie speichern, 
     zu welchem Zweck wir die Daten verarbeiten, woher die Daten stammen (wenn dies gespeichert oder sonst bekannt ist), 
     welche Daten wir ver&ouml;ffentlichen und an wen wir die Daten &uuml;bermitteln. Sie haben das Recht, falsche oder
     unvollst&auml;ndige Daten korrigieren zu lassen.</strong></p> 
