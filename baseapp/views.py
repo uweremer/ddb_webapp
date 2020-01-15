@@ -34,7 +34,7 @@ def datenschutz(request):
     assert isinstance(request, HttpRequest)
     return render(
         request,
-        'baseapp/datenschutz.html',
+        'baseapp/Datenschutz.html',
         {
             'title': 'Datenschutz',
             'year':datetime.now().year,
