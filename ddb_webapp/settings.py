@@ -167,7 +167,7 @@ LOGIN_REDIRECT_URL = '/admin'
 #send_mail(
 #    'subject here',
 #    'here is the message.',
-#    'fn101432@sowi.uni-stuttgart.de',
+#    'xyz@sowi.uni-stuttgart.de',
 #    ['to@example.com'],
 #    fail_silently=False,
 #)
