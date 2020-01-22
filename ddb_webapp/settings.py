@@ -17,12 +17,12 @@ import posixpath
 #BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-if not os.path.exists('.credentials'):
-    with open('test_credentials.txt') as f:
+if not os.path.exists(os.path.join(BASE_DIR, '.credentials')):
+    with open(os.path.join(BASE_DIR, 'test_credentials.txt')) as f:
         CRED = f.read().splitlines() 
 
-if os.path.exists('.credentials'):	
-    with open('.credentials') as f:
+if os.path.exists(os.path.join(BASE_DIR, '.credentials')):	
+    with open(os.path.join(BASE_DIR, '.credentials')) as f:
         CRED = f.read().splitlines() 
 
 # SECURITY WARNING: keep the secret key used in production secret!
