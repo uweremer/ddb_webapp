@@ -27,6 +27,7 @@
   <ItemGroup>
     <Content Include="baseapp\templates\baseapp\contact.html" />
     <Content Include="baseapp\templates\baseapp\Datenschutz.html" />
+    <Content Include="baseapp\templates\baseapp\navbarextension.html" />
     <Content Include="baseapp\templates\baseapp\projektbeschreibung.html" />
     <Content Include="baseapp\templates\baseapp\index.html" />
     <Content Include="baseapp\templates\baseapp\layout.html" />

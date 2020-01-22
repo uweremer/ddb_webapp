@@ -12,6 +12,7 @@
 
 <!--<body style="background-image:url({% static '/graphics/test.jpg' %})"-->
 <body>
+{% block nav %}
 <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
 <div class="container">
   <a class="navbar-brand" href="#">
@@ -56,7 +57,7 @@
   </div>
 </div>
 </nav>
-
+{% endblock nav %}
 
  <div class="container body-content">
 <div><p></p></div>
