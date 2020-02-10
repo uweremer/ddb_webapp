@@ -1,6 +1,13 @@
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Auswertungen</a>
-      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Auswertungen
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{% url 'zusammenfassung' %}">Zusammenfassung</a>
+          <a class="dropdown-item disabled" href="#">Wie viel Beteiligung findet statt</a>
+          <a class="dropdown-item disabled" href="#">Jugendbeteiligung</a>
+          <a class="dropdown-item disabled" href="#">Direktdemokratische Beteiligung</a>
+        </div>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Daten

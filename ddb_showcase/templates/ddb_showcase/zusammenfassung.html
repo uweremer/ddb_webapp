@@ -1,0 +1,95 @@
+{% extends "baseapp/layout.html" %}
+
+{% block content %}
+{% load static %}
+<div class="jumbotron">
+    <h1>Zusammenfassung</h1>
+    <p class="lead">Erste Ergebnisse aus derDatenbank dialogische Beteiligungsverfahren - dem Forschungsprojekt zur Vermessung der Beteiligungslandschaft in Baden-W&uuml;rttemberg.</p>
+    <p>Stand: August 2019</p>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12 text-justify">
+        <h3>Relevanz</h3>
+        <p>Seit Mitte der 1990er Jahre erfahren dialogorientierte Beteiligungsverfahren in der Demokratieforschung, vor allem aber auch in der 
+        kommunalpolitischen Praxis, immer mehr Aufmerksamkeit. Dialogische Beteiligungsformen er&ouml;ffnen M&ouml;glichkeiten f&uuml;r einen 
+        breiten kommunikativen Austausch zwischen Politik, Verwaltung und B&uuml;rgerschaft, um vielf&auml;ltige gesellschaftliche Herausforderungen 
+        kooperativer als bislang zu bearbeiten. Sie k&ouml;nnen zu inhaltlich besseren Entscheidungen und einer gr&ouml;&szlig;eren 
+        Akzeptanz von Ma&szlig;nahmen beitragen. &Uuml;ber den Kreis der Teilnehmenden hinaus kann eine etablierte Beteiligungskultur aber auch 
+        helfen, gesellschaftlichen Zusammenhalt zu st&auml;rken.</p>
+ 
+        <h3>Umsetzung</h3>
+        <p>Bislang gab es allerdings keine belastbaren Daten dar&uuml;ber, wie stark dialogorientierte Beteiligungsverfahren in modernen Demokratien 
+        &uuml;berhaupt genutzt werden. Die bislang auf Baden-W&uuml;rttemberg begrenzte "Datenbank dialogorientierte Beteiligungsverfahren" ist 
+        weltweit die erste ihrer Art, mit der entsprechende Daten systematisch und semi-automatisiert via "Web-Scraping" erhoben werden k&ouml;nnen.</p>
+
+        <h3>Ergebnisse</h3>
+        <p>Erste Ergebnisse aus dem Forschungsprojekt liegen jetzt f&uuml;r Baden-W&uuml;rttemberg vor: In einer Stichprobe aller baden-w&uuml;rttembergischen 
+        Kommunen (816 von insgesamt 1.101 Kommunen) wurden 2.758 dialogische Beteiligungsereigni&szlig;e identifiziert, die innerhalb eines Zeitraums 
+        von drei Jahren stattgefunden haben.  Sie verteilen sich auf 573 Kommunen der Stichprobe. Das hei&szlig;t, in 70 Prozent aller Kommunen in 
+        Baden-W&uuml;rttemberg hat innerhalb von drei Jahren mindestens ein dialogisches Beteiligungsereignis stattgefunden. Auf ein Jahr gerechnet 
+        findet damit im Durchschnitt etwa ein Beteiligungsereignis pro Kommune in Baden-W&uuml;rttemberg statt. Damit sind dialogische Beteiligungsverfahren 
+        in der baden-w&uuml;rttembergischen Kommunalpolitik bereits weit verbreitet.</p>
+
+        <p>Die Zahl der Beteiligungsverfahren steigt mit zunehmender Gemeindegr&ouml;&szlig;e. Dies ist vor allem zur&uuml;ckzuf&uuml;hren auf die 
+        Zunahme potenzieller Beteiligungsanl&auml;sse in Folge des zunehmenden Aufgabenumfangs und der st&auml;rkeren Ressourcenausstattung, 
+        die - zumindest theoretisch - f&uuml;r B&uuml;rgerbeteiligung vorhanden ist (vgl. Abbildung 1).</p>
+
+        <div class="mx-5">
+        <h6>Abb. 1: Beteiligungsereignisse in Baden-W&uuml;rttemnberg pro Kommune und Jahr</h6>
+
+        <img src="{% static '/graphics/auswertungen/zusammenfassung_abb1.png' %}" 
+             alt="Beteiligungsereignisse in Baden-W&uuml;rttemnberg pro Kommune und Jahr"
+             class="img-fluid mx-auto d-block">
+        </div>
+
+        <p>Ein anders Bild zeigt sich aber, wenn man die durchschnittliche Anzahl an Beteiligungsereignissen pro tausend Einwohner betrachtet 
+        (vgl. Abbildung 2): In kleinen Kommunen ist die Beteiligungsdichte viel gr&ouml;&szlig;er als in Gro&szlig;st&auml;dten. So finden in den 
+        kleinsten Kommunen (< 2.000 E.) j&auml;hrlich im Durchschnitt 0,3 Beteiligungsereignisse pro tausend Einwohner statt. In Kommunen mit 
+        2.001 bis 5.000 Einwohnern liegt dieser Wert bei 0,18. In Kommunen mit mehr als 20.000 Einwohnern (etwa 10 Prozent der baden-w&uuml;rttembergischen 
+        Kommunen) sind es dagegen nur zwischen 0,04 und 0,12 Beteiligungsereignisse pro tausend Einwohner pro Jahr.</p>
+
+        <div class="mx-5">
+        <h6>Abb. 2: Beteiligungsereignisse in Baden-W&uuml;rttemberg pro tausend Einwohner pro Kommune und Jahr</h6>
+        <img src="{% static '/graphics/auswertungen/zusammenfassung_abb2.png' %}" 
+             alt="Beteiligungsereignissepro tausend Einwohner pro Kommune und Jahr" 
+             class="img-fluid mx-auto d-block">
+        </div>
+
+        <p>Etwa 65 Prozent der dialogischen Beteiligungsereigni&szlig;e werden durch die Verwaltungen initiiert, die verbleibenden 35 Prozent durch 
+        andere Akteure wie Parteien, Verb&auml;nde, Vereine, Gruppen oder Einzelpersonen. Die thematische Bandbreite der Dialogveranstaltungen ist 
+        gro&szlig;: Am h&auml;ufigsten wird zu den Themen "Infrastruktur, Stadtentwicklung, Mobilit&auml;t und Verkehr" beteiligt. H&auml;ufig 
+        beziehen sich die Veranstaltungen aber auch auf Themen wie "Jugend, Sport, Soziales und Kultur", oder aber sie sind thematisch noch breiter 
+        bzw. offener angelegt.</p>
+        
+        <p>In Baden-W&uuml;rttemberg ist dialogische Beteiligung auf kommunaler Ebene damit ein verbreitetes Element lokaler Politik, um die 
+        Kommunikation zwischen B&uuml;rgerschaft, Politik und Verwaltung zu st&auml;rken. Mit Hilfe der "Datenbank dialogorientierte 
+        Beteiligungsverfahren" kann die Forschung zu dialogischer B&uuml;rgerbeteiligung nun systematisch ausgebaut werden, um deren Wirkungsmechanismen 
+        und Wirkungspotenziale genauer zu identifizieren und das Zusammenspiel zwischen verschiedenen Beteiligungsformen im Rahmen der 
+        repr&auml;sentativen Demokratie zu untersuchen.</p>
+
+        <p><hr width="20%" align="left"></p>
+        <div class="font-weight-light small">
+        <p>Weiterf&uuml;hrende Literaturempfehlungen:</p>
+        <ul>
+            <li>Vetter, Angelika; Remer-Bollow, Uwe (2017): B&uuml;rger und Beteiligung in der Demokratie - Eine Einf&uuml;hrung. Wiesbaden: Springer VS,
+<a href="https://doi.org/10.1007/978-3-658-13722-9" target="_blank""><span class="fa fa-external-link"></span> DOI: 10.1007/978-3-658-13722-9</a>.</li>
+            <li>Dryzek, John; B&auml;chtiger, Andr&eacute; u. a. (2019): The crisis of democracy and the science of deliberation. 
+            In: Science 363.6432, S. 1146, <a href="https://doi.org/10.1126/science.aaw2694 target="_blank""><span class="fa fa-external-link"></span> DOI: 10.1126/science.aaw2694</a>.</li>
+            <li>Vetter, Angelika; Geyer, Saskia; Eith, Ulrich (2015): Die wahrgenommenen Wirkungen von B&uuml;rgerbeteiligung. In: Baden-W&uuml;rttemberg Stiftung 
+            (Hg.): Demokratie-Monitoring Baden-W&uuml;rttemberg 2013/2014. Wiesbaden: Springer VS, S. 223-342, 
+            <a href="https://doi.org/10.1007/978-3-658-09420-1_6" target="_blank"><span class="fa fa-external-link"></span> DOI: 10.1007/978-3-658-09420-1_6</a>.</li>
+            <li>Ansell, Chriss; Gash, Alison (2007): Collaborative Governance in Theory and Practice. In: Journal of Public Administration 
+            Research and Theory 18 (4), S. 543-571, 
+            <a href="https://doi.org/10.1093/jopart/mum032" target="_blank"><span class="fa fa-external-link"></span> DOI: 10.1093/jopart/mum032</a>.</li>
+        </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+

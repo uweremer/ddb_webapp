@@ -27,13 +27,15 @@
   <ItemGroup>
     <Content Include="baseapp\templates\baseapp\contact.html" />
     <Content Include="baseapp\templates\baseapp\Datenschutz.html" />
+    <Content Include="baseapp\templates\baseapp\index.html" />
     <Content Include="baseapp\templates\baseapp\navbar_distributor.html" />
     <Content Include="baseapp\templates\baseapp\projektbeschreibung.html" />
-    <Content Include="baseapp\templates\baseapp\index.html" />
+    <Content Include="ddb_showcase\templates\ddb_showcase\zusammenfassung.html" />
     <Content Include="baseapp\templates\baseapp\layout.html" />
     <Content Include="baseapp\templates\baseapp\login.html" />
     <Content Include="baseapp\templates\baseapp\loginpartial.html" />
     <Content Include="credentials_template.txt" />
+    <Content Include="ddb_showcase\templates\ddb_showcase\index1.html" />
     <Content Include="README.md" />
     <Content Include="requirements.txt" />
   </ItemGroup>
@@ -49,6 +51,16 @@
     <Compile Include="baseapp\urls.py" />
     <Compile Include="baseapp\views.py" />
     <Compile Include="baseapp\__init__.py" />
+    <Compile Include="ddb_showcase\admin.py" />
+    <Compile Include="ddb_showcase\apps.py" />
+    <Compile Include="ddb_showcase\migrations\__init__.py" />
+    <Compile Include="ddb_showcase\models.py" />
+    <Compile Include="ddb_showcase\tests.py" />
+    <Compile Include="ddb_showcase\urls.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ddb_showcase\views.py" />
+    <Compile Include="ddb_showcase\__init__.py" />
     <Compile Include="ddb_webapp\settings.py" />
     <Compile Include="ddb_webapp\urls.py" />
     <Compile Include="ddb_webapp\wsgi.py" />
@@ -60,6 +72,10 @@
     <Folder Include="baseapp\migrations\" />
     <Folder Include="baseapp\templates\" />
     <Folder Include="baseapp\templates\baseapp\" />
+    <Folder Include="ddb_showcase\" />
+    <Folder Include="ddb_showcase\migrations\" />
+    <Folder Include="ddb_showcase\templates\" />
+    <Folder Include="ddb_showcase\templates\ddb_showcase\" />
     <Folder Include="ddb_webapp" />
   </ItemGroup>
   <ItemGroup>
