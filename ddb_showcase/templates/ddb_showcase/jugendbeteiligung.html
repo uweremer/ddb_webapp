@@ -1,0 +1,156 @@
+{% extends "baseapp/layout.html" %}
+
+{% block content %}
+{% load static %}
+<div class="jumbotron">
+    <h1>Kinder- und Jugendbeteiligung in Baden-W&uuml;rtemberg</h1>
+    <p class="lead">Erste Ergebnisse aus der Datenbank dialogische Beteiligungsverfahren - dem Forschungsprojekt zur Vermessung der Beteiligungslandschaft in Baden-W&uuml;rttemberg.</p>
+    <p>Stand: August 2019</p>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12 text-justify">
+        <p>Das folgende Kapitel behandelt Beteiligungsereignisse und Dauereinrichtungen, welche sich explizit mit der Beteiligung von Kindern und Jugendlichen 
+        befassen. Zun&auml;chst werden die Dauereinrichtungen behandelt, anschlie&szlig;end dann Beteiligungsereignisse mit der Zielgruppe der Kinder und Jugendlichen.</p>
+
+        <h3>Dauereinrichtungen der Kinder- und Jugendbeteiligung</h3>
+
+        <p>Bei der Darstellung der von uns erfassten Beteiligungsverfahren unterscheiden wir zwischen einzelnen Ereignissen und Dauereinrichtungen. 
+        Unter Letztere fallen insbesondere Jugendgemeinder&auml;te, aber auch andere, regelm&auml;&szlig;ig stattfindende Beteiligungsformen wie Jugendforen oder -vertretungen. 
+        Nicht zu Dauereinrichtungen der Jugendbeteiligung werden solche Einrichtungen gez&auml;hlt, welche entweder nur von Erwachsenen besetzt sind, welche sich mit 
+        jugendrelevanten Themen befassen (Referate oder Arbeitskreise) oder Einrichtung, welche nicht prim&auml;r auf die Beteiligung an politischen Entscheidungen und 
+        Prozessen abzielen (z.B. Jugendh&auml;user, Jugendsozialarbeit). Eine Besonderheit der Dauereinrichtungen ist, dass das Startdatum (oder ggf. das Enddatum) 
+        der Einrichtungen schwerer zu ermitteln sind als bei den anderen Ereignissen, da Dauereinrichtungen in der Regel &uuml;ber einen l&auml;ngeren Zeitraum hinweg 
+        stattfinden. F&uuml;r die nachfolgenden Analysen werden daher solche Einrichtungen ausgeschlossen, bei welchen von den Kodierenden Unsicherheit &uuml;ber das Start- 
+        oder Enddatum angegeben wurde.</p>
+
+        <div class="mx-5">
+        <h6>Abb. 1: Dauereinrichtungen zur Jugendbeteiligung nach Start-Datum</h6>
+
+        <img src="{% static '/graphics/auswertungen/jugend/abb_jgd (1).png' %}" 
+             alt="Dauereinrichtungen zur Jugendbeteiligung nach Start-Datum"
+             class="img-fluid mx-auto d-block">
+        </div>
+
+        <p>Abbildung 1 zeigt die Zahl der Dauereinrichtungen zur Jugendbeteiligung anhand des Startdatums. Die fr&uuml;heste Einrichtung von uns 
+        erfasste Einrichtung startete im Jahr 1987. Bis zum aktuellen Datum werden in den 1990er Jahren weitere Einrichtungen institutionalisiert, wobei die Jahre 
+        mit den meisten neuen Einrichtungen 2016, 2017 und 2018 darstellen. Dieser Befund sollte allerdings mit Vorsicht interpretiert werden, da die 
+        Erhebungsmethode aktuellere Ereignisse und Einrichtungen wom&ouml;glich mit einer gr&ouml;&szlig;eren Wahrscheinlichkeit findet. An dieser Stelle ist zus&auml;tzlich zu beachten,
+        dass einige Einrichtungen, welche 2018 gestartet sind, nicht in die Analysen mit einbezogen werden, da die Erhebung haupts&auml;chlich 2018 erfolgte, einige 
+        Kommunen aber bereits Anfang des Jahres kodiert wurden. Abbildung 2 berichtet die kumulative H&auml;ufigkeit der Dauereinrichtungen: 
+        hier ist ein kontinuierlicher Anstieg zu beobachten, mit einem Maximum von 98 Einrichtungen im Jahr 2018.</p>
+
+        <div class="mx-5">
+        <h6>Abb. 2: Kumulative H&auml;ufigkeit der Dauereinrichtungen zur Jugendbeteiligung</h6>
+
+        <img src="{% static '/graphics/auswertungen/jugend/abb_jgd (2).png' %}" 
+             alt="Kumulative H&auml;ufigkeit der Dauereinrichtungen zur Jugendbeteiligung"
+             class="img-fluid mx-auto d-block">
+        </div>
+
+        <p>Auch das Vorkommen der Dauereinrichtungen h&auml;ngt mit der Gemeindegr&ouml;&szlig;en zusammen (vgl. Abbildung 3). In Kommunen mit mehr als 100.000 Einwohnern gibt es 
+        im Mittel 0.6 Einrichtungen pro Kommune, Gemeinden mit 20.001 - 50.000 Einwohnern haben mit 0.75 durchschnittlich am meisten Einrichtungen pro Kommunen 
+        zu verzeichnen. Gemeinden mit 50.001 - 100.000 Einwohnern befinden sich mit 0.62 Einrichtungen in &auml;hnlicher Gr&ouml;&szlig;enordnung. Deutlich weniger Einrichtungen 
+        pro Kommune haben Gemeinden mit 5.001 - 20.000 Einwohnern, hier sind es im Schnitt 0.16. Die kleinsten Kommunen haben am seltensten Einrichtungen zur 
+        Kinder- und Jugendbeteiligung: im Schnitt sind es 0.04 bzw. 0.02.</p>
+
+        <div class="mx-5">
+        <h6>Abb. 3: Durchschnittliche Anzahl an Dauereinrichtungen nach Gemeindegr&ouml;&szlig;enklassen</h6>
+
+        <img src="{% static '/graphics/auswertungen/jugend/abb_jgd (3).png' %}" 
+             alt="Durchschnittliche Anzahl an Dauereinrichtungen nach Gemeindegr&ouml;&szlig;enklassen"
+             class="img-fluid mx-auto d-block">
+        </div>
+
+        <h3>Beteiligungsereignisse</h3>
+        <p>In Folgenden geht es um Beteiligungsereignisse , welche explizit Kinder, Jugendliche und/oder Sch&uuml;ler als Zielgruppe haben. Von den zum Stand 
+        des Berichtes bearbeiteten Gemeinden hat in 136, also 16.67 Prozent, mindestens ein Ereignis zur Jugendbeteiligung stattgefunden (vgl. Abbildung4). Insgesamt 
+        gab es 242 solcher Ereignisse . Die Kommune mit den meisten Verfahren hat 12 Ereignisse . Der Durchschnitt (arithmetisches Mittel) liegt bei 0.3 
+        Beteiligungsereignissen pro Kommune (Standardabweichung 0.95).</p>
+
+        <div class="mx-5">
+        <h6>Abb. 4: H&auml;ufigkeit der Ereignisse mit Zielgruppe Kinder/Jugendliche pro Kommune</h6>
+
+        <img src="{% static '/graphics/auswertungen/jugend/abb_jgd (4).png' %}" 
+             alt="H&auml;ufigkeit der Ereignisse mit Zielgruppe Kinder/Jugendliche pro Kommune"
+             class="img-fluid mx-auto d-block">
+        </div>
+
+        <p>Abbildung 5 zeigt, dass auch die Ereignisse zur Jugendbeteiligung h&auml;ufiger in gr&ouml;&szlig;eren Kommunen stattfinden. Am h&auml;ufigsten fanden 
+        sie in Kommunen mit 50.001 - 100.000 Einwohnern statt, es folgen Kommunen mit mehr als 100.000 Einwohnern und diejenigen mit 20.001 - 50.000 Einwohnern. 
+        Wie auch bei den Dauereinrichtungen sind die Bev&ouml;lkerungskategorien unter 20.000 Einwohnern deutlich seltener Schauplatz von Ereignissen zur 
+        Kinder- und Jugendbeteiligung.</p>
+
+
+        <div class="mx-5">
+        <h6>Abb. 5: Durchschnitt Jugend/Kinder-Beteiligungsereignisse nach Gemeindegr&ouml;&szlig;enklassen</h6>
+
+        <img src="{% static '/graphics/auswertungen/jugend/abb_jgd (5).png' %}" 
+             alt="Durchschnitt Jugend/Kinder-Beteiligungsereignisse nach Gemeindegr&ouml;&szlig;enklassen"
+             class="img-fluid mx-auto d-block">
+        </div>
+
+        <p>Bez&uuml;glich des Themengebiets l&auml;sst sich feststellen, dass - wenig &uuml;berraschend - am h&auml;ufigsten Kinder- und Jugendbeteiligung zu den 
+        Themen stattfindet, welche diese oft am meisten betreffen: Jugend, Soziales, Sport und Kultur (vgl. Abbildung 6). Es folgen Ereignisse ohne klare 
+        Themenfestlegung und solche zu Infrastrukturthemen.</p>
+
+        <div class="mx-5">
+        <h6>Abb. 6: Themengebiet der Jugend/Kinder-Beteiligungsereignisse</h6>
+
+        <img src="{% static '/graphics/auswertungen/jugend/abb_jgd (6).png' %}" 
+             alt="Themengebiet der Jugend/Kinder-Beteiligungsereignisse"
+             class="img-fluid mx-auto d-block">
+        </div>
+
+
+        <p>Ein Gro&szlig;teil der Verfahren zur Jugendbeteiligung ist dialogischer Natur (vgl. Abbildung 7). 221 Ereignisse sind Dialogveranstaltung, was 
+        etwa 90 Prozent der gesamten Ereignisse ausmacht. Nur 21 Ereignisse sind Veranstaltungen, die prim&auml;r der Information dienen.</p>
+
+        <div class="mx-5">
+        <h6>Abb. 7: Methode der Jugend/Kinder-Beteiligungsereignisse</h6>
+
+        <img src="{% static '/graphics/auswertungen/jugend/abb_jgd (7).png' %}" 
+             alt="Methode der Jugend/Kinder-Beteiligungsereignisse"
+             class="img-fluid mx-auto d-block">
+        </div>
+
+        <p>Ereignisse zur Jugendbeteiligung wurden mit 67 Prozent (N = 163) h&auml;ufiger von der Verwaltung als von andern Akteuren initiiert (vgl. Abbildung 8).</p>
+        
+        <div class="mx-5">
+        <h6>Abb. 8: Initiator der Jugend/Kinder-Beteiligungsereignisse</h6>
+
+        <img src="{% static '/graphics/auswertungen/jugend/abb_jgd (8).png' %}" 
+             alt="Initiator der Jugend/Kinder-Beteiligungsereignisse"
+             class="img-fluid mx-auto d-block">
+        </div>
+
+        <p>Es werden bei den Beteiligungsereignissen in aller Regel Jugendliche auf der kommunalen Ebene angesprochen (vgl. Abbildung 9). Dies trifft auf 223 
+        Ereignisse bzw. 92 Prozent der Ereignisse zu. Jugendliche/Kinder von au&szlig;erhalb der Kommune werden in nur 19 Verfahren angesprochen.</p>
+
+        <div class="mx-5">
+        <h6>Abb. 9: Ebene der Zielgruppe der Jugend/Kinder-Beteiligungsereignisse</h6>
+
+        <img src="{% static '/graphics/auswertungen/jugend/abb_jgd (9).png' %}" 
+             alt="Ebene der Zielgruppe der Jugend/Kinder-Beteiligungsereignisse"
+             class="img-fluid mx-auto d-block">
+        </div>
+
+
+        <p><hr width="20%" align="left"></p>
+        <div class="font-weight-light small">
+        <p>Weiterf&uuml;hrende Literaturempfehlungen:</p>
+        <ul>
+            <li>Baden-W&uuml;rttemberg Stiftung (Hrsg.)(2015): In Zukunft mit UNS! - Jugendbeteiligung in der Kommune. Handreichung Nr. 2 aus dem Projekt: in Zukunft mit UNS! - Qualifizierung Jugendlicher in Beteiligungsprozessen.
+            <a href="https://www.bwstiftung.de/uploads/tx_news/HR_2_Kommune_WEB_02.pdf" target="_blank"><span class="fa fa-external-link"></span> Link zur pdf-Datei</a>.</li>
+            <li>Roller, Edeltraud; Brettschneider, Frank; van Deth, Jan W. (Hrsg.)(2006)Jugend und Politik: "Voll normal!". Wiesbaden: VS Verlag f&uuml;r Sozialwissenschaften,  
+            <a href="https://doi.org/10.1007/978-3-531-90094-0" target="_blank"><span class="fa fa-external-link"></span> DOI: 10.1007/978-3-531-90094-0</a>.</li>
+            <li>Homepage der <a href="https://www.ljrbw.de/servicestelle-kinder-und-jugendbeteiligung" target="_blank">
+                <span class="fa fa-external-link"></span> Servicestelle Kinder- und Jugendbeteiligung</a> des Landesjugendring Baden-W&uuml;rttemberg e.V.</li>
+        </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+https://www.bwstiftung.de/uploads/tx_news/HR_2_Kommune_WEB_02.pdf
