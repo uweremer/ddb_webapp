@@ -1,26 +1,13 @@
-"""
-This file demonstrates writing tests using the unittest module. These will pass
-when you run "manage.py test".
-
-Replace this with more appropriate tests for your application.
-"""
-
-import django
 from django.test import TestCase
+from django.urls import reverse
 
-# TODO: Configure your database in settings.py and sync before running tests.
+# Create your tests here.
 
-class SimpleTest(TestCase):
-    """Tests for the application views."""
 
-    # Django requires an explicit setup() when running tests in PTVS
-    @classmethod
-    def setUpClass(cls):
-        super(SimpleTest, cls).setUpClass()
-        django.setup()
-
-    def test_basic_addition(self):
-        """
-        Tests that 1 + 1 always equals 2.
-        """
-        self.assertEqual(1 + 1, 2)
+class ShowcaseViewTests(TestCase):
+    """
+    Tests that every view is mapped to an URL
+    """
+    def test_zusammenfassung(self):
+        response = self.client.get(reverse('zusammenfassung'))
+        self.assertEqual(response.status_code, 200) 
