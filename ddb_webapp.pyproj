@@ -37,7 +37,6 @@
     <Content Include="baseapp\templates\baseapp\login.html" />
     <Content Include="baseapp\templates\baseapp\loginpartial.html" />
     <Content Include="credentials_template.txt" />
-    <Content Include="ddb_showcase\templates\ddb_showcase\index1.html" />
     <Content Include="README.md" />
     <Content Include="requirements.txt" />
   </ItemGroup>

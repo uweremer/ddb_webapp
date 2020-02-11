@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /Daten/
+Disallow: /*.xls$
+Disallow: /*.xlsx$
+
+User-Agent: Googlebot-Image
+Disallow: /graphics/Auswertungen
+
+http://beteiligungslandschaft-bw.de/sitemap.xml
