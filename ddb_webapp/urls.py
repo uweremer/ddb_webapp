@@ -24,4 +24,5 @@ urlpatterns = [
     path('kontakt', baseapp.views.contact, name='contact'),
     path('admin/', admin.site.urls),
     path('auswertungen/', include('ddb_showcase.urls')),
+    path('basisdaten/', include('basisdaten.urls')),
 ]

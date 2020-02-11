@@ -1,0 +1,49 @@
+﻿{% extends "baseapp/layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1 class="display-4">Basisdaten</h1>
+    <p>Basisdaten sind alle Daten, die zur Konstruktion der Recherchematrix herangezogen werden. 
+    Im einzelnen sind das die Gebietseinheiten in denen nach Beteiligungsverfahren gesucht wird, sowie 
+    die Verfahrensbezeichnungen. Die einzelnen Elemente der Recherchematrix werden dann als einzelne 
+    Suchanfragen bearbeitet. Zus&auml;tzlich gibt es Ausschlussbegriffe, die als Blacklist f&uuml;r einen 
+    automatischen Abgleich genutz werden..</p>
+    <!-- <p><a href="#" class="btn btn-warning btn-large">Mehr &uuml;ber dialogorientierte Beteiligung &raquo;</a></p>-->
+</div>
+
+<div class="container">
+<div class="row">
+    <div class="col-xl-4 col-lg-6">
+        <h2>Gebietseinheiten</h2>
+        <p>
+            Bei den Gebietseinheiten handelt es sich um Kommunen, Kreise und Budesl&auml;nder. Die Daten stammen aus 
+            dem amtlichen Gemeindeverzeichnis f&uuml;r Deutschland, das beim 
+            <a href="https://www.destatis.de/DE/Themen/Laender-Regionen/Regionales/Gemeindeverzeichnis/_inhalt.html" target="_blank"><span class="fa fa-external-link"></span> Statistischen Bundesamt</a> 
+            verf&uuml;gbar ist.
+        </p>
+        <p><a class="btn btn-warning" href="#">Mehr &raquo;</a></p>
+    </div>
+    <div class="col-xl-4 col-lg-6">
+        <h2>Verfahrensbezeichnungen</h2>
+        <p>
+            Hier finden sich alle gesammelten Verfahrensbezeichnungen, die zu Begriffsgruppen
+            zusammengefasst sind. Diese dienen dazu, tagesaktuell die relevanten Verfahrensbezeichnungen 
+            f&uuml;r die Generierung der Suchanfragen bereit zu stellen.
+        </p>
+        <p><a class="btn btn-warning" href="#">Mehr &raquo;</a></p>
+    </div>
+    <div class="col-xl-4 col-lg-6">
+        <h2>Ausschlussbegriffe</h2>
+        <p>
+            Das Modell beinhaltet gesammelte Begriffspaare und URL-Schnipsel, gegen 
+            welche die Rohtreffer URLs bzw. der Plaintext abgeglichen wird. 
+            Rohtreffer die zu dieser Blacklist geh&ouml;ren werden nicht zur weiteren 
+            Kodierung genutzt.
+        </p>
+        <p><a class="btn btn-warning" href="#">Mehr &raquo;</a></p>
+    </div>
+</div>
+</div>
+{% endblock %}
+

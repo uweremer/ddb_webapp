@@ -65,7 +65,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Own Apps
     'baseapp',
+    'basisdaten',
     'ddb_showcase',
+
 ]
 
 MIDDLEWARE = [

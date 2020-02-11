@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="jumbotron">
-    <h1 class="display-3">Beteiligungslandschaft BW</h1>
+    <h1 class="display-4">Beteiligungslandschaft BW</h1>
     <p class="lead">B&uuml;rgerbeteiligung und partizipative Demokratie in den St&auml;dten und Gemeinden in Baden-W&uuml;rttemberg.</p>
     <p>B&uuml;rgerbeteiligung in Form von Dialogen, B&uuml;rgerforen und anderen Formaten sind heute weit verbreitet und finden in vielen 
     Orten und zu vielen Themen statt. Die partizipative und die deliberative Demokratietheorie bilden die normative Grundlage f&uuml;r die 
@@ -14,8 +14,9 @@
     <!-- <p><a href="#" class="btn btn-warning btn-large">Mehr &uuml;ber dialogorientierte Beteiligung &raquo;</a></p>-->
 </div>
 
+<div class="container">
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-xl-4 col-lg-6">
         <h2>Datenbestand erkunden</h2> <!--TODO: Badges f&uuml;r Erhebnungsstand-->
         <p>Bisher wurden <span class="badge badge-pill badge-secondary">#NA</span> Beteiligungsereignisse in <span class="badge badge-pill badge-secondary">#NA</span> 
         Kommunen in Baden-W&uuml;rttemberg identifiziert. Sie k&ouml;nnen den Datenbestand gerne erkunden. Verschiedene Such- und Filterm&ouml;glichkeiten helfen Ihnen 
@@ -23,7 +24,7 @@
         </p>
         <p><a class="btn btn-warning" href="#">Fehlt noch &raquo;</a></p>
     </div>
-    <div class="col-md-4">
+    <div class="col-xl-4 col-lg-6">
         <h2>&Uuml;ber das Projekt</h2>
         <p>Die Auswertungen auf dieser Seite basieren auf den Daten der <em>Datenbank dialogorientierte Beteiligunsverfahren</em> 
         (<acronym title="Datenbank dialogorientierte Beteiligungsverfahren" xml:lang="de" lang="de">DDB</acronym>), die im Rahmen eines 
@@ -31,7 +32,7 @@
         der Universit&auml;t Stuttgart gesammelt werden.  </p>
         <p><a class="btn btn-secondary" href="{% url 'projektbeschreibung' %}">Mehr &raquo;</a></p>
     </div>
-    <div class="col-md-4">
+    <div class="col-xl-4 col-lg-6">
         <h2>Hinter den Kulissen</h2>
         <p>
         Eine speziell f&uuml;r das Projekt entwickelte Anwendung integriert die verschiedenen Schritte der Datenerhebung und Aufbereitung. Es handelt sich um eine Webanwendung 
@@ -41,6 +42,6 @@
         <p><a class="btn btn-secondary" href="https://github.com/uweremer/ddb_webapp" target="_blank"><span class="fa fa-external-link"></span> Zum Repository &raquo;</a></p>
     </div>
 </div>
-
+</div>
 {% endblock %}
 

@@ -30,6 +30,7 @@
     <Content Include="baseapp\templates\baseapp\index.html" />
     <Content Include="baseapp\templates\baseapp\navbar_distributor.html" />
     <Content Include="baseapp\templates\baseapp\projektbeschreibung.html" />
+    <Content Include="basisdaten\templates\basisdaten\index.html" />
     <Content Include="ddb_showcase\templates\ddb_showcase\jugendbeteiligung.html" />
     <Content Include="ddb_showcase\templates\ddb_showcase\dialogbeteiligung.html" />
     <Content Include="ddb_showcase\templates\ddb_showcase\zusammenfassung.html" />
@@ -52,6 +53,16 @@
     <Compile Include="baseapp\urls.py" />
     <Compile Include="baseapp\views.py" />
     <Compile Include="baseapp\__init__.py" />
+    <Compile Include="basisdaten\admin.py" />
+    <Compile Include="basisdaten\apps.py" />
+    <Compile Include="basisdaten\migrations\__init__.py" />
+    <Compile Include="basisdaten\models.py" />
+    <Compile Include="basisdaten\tests.py" />
+    <Compile Include="basisdaten\urls.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="basisdaten\views.py" />
+    <Compile Include="basisdaten\__init__.py" />
     <Compile Include="ddb_showcase\admin.py" />
     <Compile Include="ddb_showcase\apps.py" />
     <Compile Include="ddb_showcase\migrations\__init__.py" />
@@ -73,6 +84,10 @@
     <Folder Include="baseapp\migrations\" />
     <Folder Include="baseapp\templates\" />
     <Folder Include="baseapp\templates\baseapp\" />
+    <Folder Include="basisdaten\" />
+    <Folder Include="basisdaten\migrations\" />
+    <Folder Include="basisdaten\templates\" />
+    <Folder Include="basisdaten\templates\basisdaten\" />
     <Folder Include="ddb_showcase\" />
     <Folder Include="ddb_showcase\migrations\" />
     <Folder Include="ddb_showcase\templates\" />
