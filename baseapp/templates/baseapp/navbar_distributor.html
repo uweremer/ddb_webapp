@@ -3,9 +3,9 @@
           Auswertungen
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{% url 'zusammenfassung' %}">Zusammenfassung</a>
-          <a class="dropdown-item " href="#">Wie viel Beteiligung findet statt</a>
-          <a class="dropdown-item " href="{% url 'jugendbeteiligung' %}">Jugendbeteiligung</a>
+          <a class="dropdown-item {% if nbar == 'zusammenfassung' %}active{% endif %}" href="{% url 'zusammenfassung' %}">Zusammenfassung {% if nbar == 'zusammenfassung' %}<span class="sr-only">(current)</span>{% endif %}</a>
+          <a class="dropdown-item {% if nbar == 'dialogbeteiligung' %}active{% endif %}" href="{% url 'dialogbeteiligung' %}">Wie viel Beteiligung findet statt {% if nbar == 'dialogbeteiligung' %}<span class="sr-only">(current)</span>{% endif %}</a>
+          <a class="dropdown-item {% if nbar == 'jugendbeteiligung' %}active{% endif %}" href="{% url 'jugendbeteiligung' %}">Jugendbeteiligung in Baden-W&uuml;rttemberg {% if nbar == 'jugendbeteiligung' %}<span class="sr-only">(current)</span>{% endif %}</a>
           <a class="dropdown-item disabled" href="#">Direktdemokratische Beteiligung</a>
         </div>
       <li class="nav-item dropdown">

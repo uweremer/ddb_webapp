@@ -6,4 +6,5 @@ urlpatterns = [
     path('', ddb_showcase.views.zusammenfassung, name='zusammenfassung'),
     path('zusammenfassung', ddb_showcase.views.zusammenfassung, name='zusammenfassung'),
     path('jugendbeteiligung', ddb_showcase.views.jugendbeteiligung, name='jugendbeteiligung'),
+    path('dialogbeteiligung', ddb_showcase.views.dialogbeteiligung, name='dialogbeteiligung'),
 ]

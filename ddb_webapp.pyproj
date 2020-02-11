@@ -31,6 +31,7 @@
     <Content Include="baseapp\templates\baseapp\navbar_distributor.html" />
     <Content Include="baseapp\templates\baseapp\projektbeschreibung.html" />
     <Content Include="ddb_showcase\templates\ddb_showcase\jugendbeteiligung.html" />
+    <Content Include="ddb_showcase\templates\ddb_showcase\dialogbeteiligung.html" />
     <Content Include="ddb_showcase\templates\ddb_showcase\zusammenfassung.html" />
     <Content Include="baseapp\templates\baseapp\layout.html" />
     <Content Include="baseapp\templates\baseapp\login.html" />

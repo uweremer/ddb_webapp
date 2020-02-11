@@ -14,6 +14,20 @@ def zusammenfassung(request):
         {
             'title': 'Zusammenfassung - Bürgerbetieligung in Baden-Württemberg',
             'year':datetime.now().year,
+            'nbar': 'zusammenfassung',
+        }
+    )
+
+def dialogbeteiligung(request):
+    """Renders the home page."""
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'ddb_showcase/dialogbeteiligung.html',
+        {
+            'title': 'Dialogorientierte Bürgerbeteiligung in Baden-Württemberg',
+            'year':datetime.now().year,
+            'nbar': 'dialogbeteiligung',
         }
     )
 
@@ -26,5 +40,6 @@ def jugendbeteiligung(request):
         {
             'title': 'Kinder- und Jugendbeteiligung in Baden-Württemberg',
             'year':datetime.now().year,
+            'nbar': 'jugendbeteiligung',
         }
     )

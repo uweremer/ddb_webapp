@@ -14,6 +14,7 @@ def home(request):
         {
             'title': 'Startseite',
             'year':datetime.now().year,
+            'nbar': 'home',
         }
     )
 
@@ -26,6 +27,7 @@ def projektbeschreibung(request):
         {
             'title': 'Projekt',
             'year':datetime.now().year,
+            'nbar': 'projektbeschreibung',
         }
     )
 
@@ -38,6 +40,7 @@ def contact(request):
         {
             'title': 'Kontakt',
             'year':datetime.now().year,
+            'nbar': 'contact',
         }
     )
  
@@ -50,5 +53,7 @@ def datenschutz(request):
         {
             'title': 'Datenschutz',
             'year':datetime.now().year,
+            'nbar': 'datenschutz',
+
         }
     )
