@@ -41,15 +41,15 @@ if CRED[1] == 'development':
 if CRED[1] != 'development':
     # SECURITY WARNING: don't run with debug turned on in production!
     DEBUG = False
-    ALLOWED_HOSTS = CRED[3]
+    ALLOWED_HOSTS = ['beteiligungslandschaft-bw.de', 'www.beteiligungslandschaft-bw.de']
 
     # Session Cookies and SSL
     # Documentation: https://docs.djangoproject.com/en/2.2/ref/settings/#sessions
-    SESSION_EXPIRE_AT_BROWSER_CLOSE = True
-    SESSION_COOKIE_HTTPONLY = True #Javascript kann nicht auf Cookies zugreifen
-    SESSION_COOKIE_SECURE = True #Session cookie only send over https connection geschickt
-    CSRF_COOKIE_SECURE = True
-    SECURE_SSL_REDIRECT  = True
+    #SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+    #SESSION_COOKIE_HTTPONLY = True #Javascript kann nicht auf Cookies zugreifen
+    #SESSION_COOKIE_SECURE = True #Session cookie only send over https connection geschickt
+    #CSRF_COOKIE_SECURE = True
+    #SECURE_SSL_REDIRECT  = True
 
 
 
