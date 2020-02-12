@@ -84,11 +84,11 @@ class BeteiligungsEintrag(models.Model):
         ('val', 'extern validiert'),
         )
 
-    kodierauftrag = models.IntegerField()
+    #kodierauftrag = models.IntegerField()
     gebietseinheit = models.ForeignKey('basisdaten.Gebietseinheit', on_delete=models.PROTECT, 
                                        limit_choices_to={'satzart': '60', 'land': '08'},
                                        help_text="Name der Kommune (sortiert nach Regionalschluessel)")
-    rohtreffer = models.IntegerField()
+    #rohtreffer = models.IntegerField()
     andere_rohtreffer = models.CharField(max_length=100, help_text="Doppelte Rohtreffer könenn Sie hier mit KOMMA getrennt eintragen", blank=True, null=True)
     alternative_quelle= models.BooleanField(help_text="Falls die Quelle nicht der eigentliche Rohtreffer war, sondern Sie durch weiterklicken zum Treffer gelangt sin, können Sie hier den eigentlichen Link einfügen, auf dem Sie die Informationen gefunden haben.")
     link_alternative_quelle = models.URLField(max_length=600, blank=True, help_text="Link zur alternativen Quelle")
@@ -120,7 +120,7 @@ class BeteiligungsEintrag(models.Model):
     kommentar = models.TextField(blank=True, max_length=300, help_text = "Hier können Sie Anmerkungen zur Kodierung hinterlassen")
     validierungstatus = models.CharField(default='not', choices=VALIDIERUNGS_CHOICE, max_length=3)
 
-    bearbeiter = models.IntegerField()
+    #bearbeiter = models.IntegerField()
     stand =  models.DateField(auto_now=True, help_text="Wird automatisch eingetragen")
     erstellt_am =  models.DateField(auto_now_add=True, help_text="Wird automatisch eingetragen")
 
