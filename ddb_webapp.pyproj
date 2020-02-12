@@ -30,6 +30,7 @@
     <Content Include="baseapp\templates\baseapp\index.html" />
     <Content Include="baseapp\templates\baseapp\navbar_distributor.html" />
     <Content Include="baseapp\templates\baseapp\projektbeschreibung.html" />
+    <Content Include="basisdaten\fixtures\basisdaten_ddb1.json" />
     <Content Include="basisdaten\templates\basisdaten\index.html" />
     <Content Include="ddb_showcase\templates\ddb_showcase\jugendbeteiligung.html" />
     <Content Include="ddb_showcase\templates\ddb_showcase\dialogbeteiligung.html" />
@@ -55,6 +56,9 @@
     <Compile Include="baseapp\__init__.py" />
     <Compile Include="basisdaten\admin.py" />
     <Compile Include="basisdaten\apps.py" />
+    <Compile Include="basisdaten\migrations\0002_initialisiere_daten.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="basisdaten\migrations\__init__.py" />
     <Compile Include="basisdaten\models.py" />
     <Compile Include="basisdaten\tests.py" />
@@ -86,6 +90,7 @@
     <Folder Include="baseapp\templates\baseapp\" />
     <Folder Include="basisdaten\" />
     <Folder Include="basisdaten\migrations\" />
+    <Folder Include="basisdaten\fixtures\" />
     <Folder Include="basisdaten\templates\" />
     <Folder Include="basisdaten\templates\basisdaten\" />
     <Folder Include="ddb_showcase\" />

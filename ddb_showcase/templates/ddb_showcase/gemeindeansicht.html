@@ -1,0 +1,218 @@
+{% extends "baseapp/layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+<div class="row">
+    <div class="col-md-10">
+    <h2>{{ title }}</h2>
+    <h1>{{ infobox_erweiterung.ortsname_suche }}</h1>
+    </div>
+    <div class="col-md-2" align="right">  
+        <img src="{{ infobox_erweiterung.wappen.url }}" alt="Wappen {{ infobox_erweiterung.ortsname_suche }}" width="100">    
+    </div>
+</div>
+    <p>{{ infobox.get_textkennzeichen_display }} im Kreis {{ infobox.kreisname }} ({{ infobox.landname }})</p>
+    {% if aktueller_bearbeitungsstand == 4 %} 
+    <p><span class="label label-danger">Rohdaten: ungepr&uuml;ft und unbereinigt</span></p>
+    {% elif aktueller_bearbeitungsstand == 5 %} 
+    <p><span class="label label-success">Daten intern aufbereitet</span></p>
+    {% elif aktueller_bearbeitungsstand == 8 %} 
+    <p><span class="label label-success">Daten extern validiert</span></p>
+    {% endif %}
+</div>
+
+<div class="container">
+<div class="row">
+    <div class="col-md-8">
+            {% if  infobox %}
+            <h3>Gefundene Beteiligungsverfahren</h3>
+            <p>Beteiligungsereignisse <span class="badge">{{  infobox.anzahl_be }}</span></p>
+            <p>Beteiligungsprozesse <span class="badge">{{  infobox.anzahl_bp }}</span></p>
+            <p>Dauereinrichtungen <span class="badge">{{  infobox.anzahl_de }}</span></p>
+            {% endif %}
+
+            <h3>Aktualit&auml;t der Daten</h3>
+            <p>{{ bearbeitungsstand_datum|date}}</p>
+
+    </div>
+
+
+    <div class="col-md-4">
+            <div class="col-md-12">
+            <div class="well">
+                <h3>{{ infobox_erweiterung.ortsname_suche }} </h3>
+                <p>{{ infobox.get_textkennzeichen_display }} im Kreis {{ infobox.kreisname }} ({{ infobox.landname }})</p>
+                <p>Regionalsschl&uuml;ssel: {{ infobox.regionalschluessel }}</p>
+                
+
+                <h4>Gemeindeverwaltung:</h4>
+                <p>{{ infobox_erweiterung.strasse_gv }}</br>
+                {{ infobox_erweiterung.plz_ort_gv }}</br>
+                {% if user.is_authenticated %}
+                <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:{{ infobox_erweiterung.mail_gv }}">{{ infobox_erweiterung.mail_gv }}</a></br>
+                {% else %}
+                <span class="glyphicon glyphicon-envelope"></span> <em>E-Mail-Adresse nach Anmeldung sichtbar</em></br>
+                {% endif %}
+                <span class="glyphicon glyphicon-globe"></span> <a href="{{ infobox_erweiterung.homepage_gv }}" target="blank"><span class="fa fa-external-link"></span> {{ infobox_erweiterung.homepage_gv }}</a></p>
+
+
+                {% if user.is_authenticated %}
+                <h4>Ansprechpartner:</h4>
+                <p>{{ infobox_erweiterung.get_ansprechpartner_anrede_display }} {{ infobox_erweiterung.ansprechpartner_vorname }} {{ infobox_erweiterung.ansprechpartner_name }}</br>
+                    {{ infobox_erweiterung.ansprechpartner_funktion }}</br>
+                    <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:{{ infobox_erweiterung.ansprechpartner_mail }}">{{ infobox_erweiterung.ansprechpartner_mail }}</a></br>
+                    <span class="glyphicon glyphicon-earphone"></span> {{ infobox_erweiterung.ansprechpartner_telefon }}</p>
+                {% else %}
+                {% endif %}
+
+                <h4>Basisdaten:</h4>
+                <p>Einwohner: {{ infobox.bevoelkerung }} ({{ infobox.bevolkerungsdichte }} pro km<sup>2</sup>)</br>
+                Fl&auml;che: {{ infobox.flaeche }} km<sup>2</sup></br>
+                Urbanisierungsgrad: {{ infobox.get_verstaedterung_display }}</br>
+</div>
+            </div>
+        </div>
+ </div>
+
+
+<h2>Beteiligungsverfahren</h2>
+
+
+<ul class="nav nav-tabs">
+  <li class="active"><a data-toggle="tab" href="#Beteiligungsereignisse">Beteiligungsereignisse</a></li>
+  <li><a data-toggle="tab" href="#Beteiligungsprozesse">Beteiligungsprozesse</a></li>
+  <li><a data-toggle="tab" href="#Dauereinrichtungen">Dauereinrichtungen</a></li>
+</ul>
+
+<div class="tab-content">
+  <div id="Beteiligungsereignisse" class="tab-pane fade in active">
+    
+    <div class="row">
+    <div class="col-md-12">
+
+        {% if beteiligungsereignisse %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th><abbr title="Beteiligungsererignis Identifikationsnummer">B-ID</abbr></th>
+                    <th>Bezeichnung</th>
+                    <th>Beschreibung</th>
+                    <th>Startdatum</th>
+                    <th>Quelle</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for Eintrag in beteiligungsereignisse %}
+                <tr>
+                    <td>{{ Eintrag.pk }}</td>
+                    <td><a href="{% url 'beteiligungsereignis' Eintrag.gebietseinheit_id Eintrag.pk %}">{{ Eintrag.bezeichnung }}</a></td>
+                    <td>{{ Eintrag.beschreibung }}</td>
+                    <td>{{ Eintrag.start_datum|date }}</td>
+                    <td><a href="{{ Eintrag.rohtreffer.link }}" target="blank">Link</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <div class="alert alert-info">
+            <strong>Info:</strong> Keine Beteiligungsereignisse vorhanden.
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+
+  </div>
+  <div id="Beteiligungsprozesse" class="tab-pane fade">
+    
+    <div class="row">
+    <div class="col-md-12">
+
+            {% if beteiligungsprozesse %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th><abbr title="Prozess Identifikationsnummer">P-ID</abbr></th>
+                    <th>Bezeichnung</th>
+                    <th><abbr title="Zugeh&ouml;rige Beteiligungsereignisse">BEs</abbr></th>
+                    <th>Beschreibung</th>
+                    <th>Startdatum</th>
+                    <th>Quelle</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for Eintrag in beteiligungsprozesse %}
+                <tr>
+                    <td>{{ Eintrag.pk }}</td>
+                    <td><a href="{% url 'beteiligungsprozess' Eintrag.gebietseinheit_id Eintrag.pk %}">{{ Eintrag.bezeichnung }}</a></td>
+                    <td>{{ Eintrag.beteiligungsereignis__count }} <abbr title="Zugeh&ouml;rige Beteiligungsereignisse">BEs</abbr></td>
+                    <td>{{ Eintrag.beschreibung }}</td>
+                    <td>{{ Eintrag.start_datum|date }}</td>
+                    <td><a href="{{ Eintrag.rohtreffer.link }}" target="blank">Link</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <div class="alert alert-info">
+            <strong>Info:</strong> Keine Beteiligungsprozesse vorhanden.
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+
+
+
+  </div>
+  <div id="Dauereinrichtungen" class="tab-pane fade">
+          
+    <div class="row">
+    <div class="col-md-12">
+
+            {% if dauereinrichtungen %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th><abbr title="Dauereinrichtung Identifikationsnummer">D-ID</abbr></th>
+                    <th>Bezeichnung</th>
+                    <th>Beschreibung</th>
+                    <th>Startdatum</th>
+                    <th>Quelle</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for Eintrag in dauereinrichtungen %}
+                <tr>
+                    <td>{{ Eintrag.pk }}</td>
+                    <td>{{ Eintrag.bezeichnung }}</td>
+                    <td>{{ Eintrag.beschreibung }}</td>
+                    <td>{{ Eintrag.start_datum|date }}</td>
+                    <td><a href="{{ Eintrag.rohtreffer.link }}" target="blank">Link</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <div class="alert alert-info">
+            <strong>Info:</strong> Keine Dauereinrichtungen vorhanden.
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+
+  </div>
+</div>
+
+{% if form %}
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Abschicken" class="btn btn-success btn-sm"/>
+</form>
+{% endif %}
+</div>
+
+{% endblock %}

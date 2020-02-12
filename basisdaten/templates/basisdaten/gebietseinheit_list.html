@@ -1,0 +1,27 @@
+{% extends "baseapp/layout.html" %}
+
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>Gemeinden in Baden-W&uuml;rttemberg</h1>
+    <p class="lead">
+        Hier lassen sich die gefundenen Beteiligungsprojekte, Beteiligungsereignisse und Daueraufgaben abrufen nach Gemeinden erkunden.
+</div>
+
+<div class="container">
+<div class="row">  
+    <div class="col-md-12">
+<ul>
+{% for gemeinde in object_list %}
+    <li><a href="{% url 'gemeindeansicht' gemeinde.pk %}">{{ gemeinde.name }}</a> (<acronym title="Regionalschl&uuml;ssel" xml:lang="de" lang="de">RS</acronym>: {{ gemeinde.regionalschluessel }})</li>
+{% empty %}
+    <li>Noch keine Gemeinden bearbeitet.</li>
+{% endfor %}
+</ul>
+    </div>
+</div>
+</div>
+
+
+{% endblock %}

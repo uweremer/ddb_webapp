@@ -1,0 +1,183 @@
+{% extends "baseapp/layout.html" %}
+
+{% block content %}
+
+
+<div class="jumbotron">
+<div class="row">
+    <div class="col-md-12">
+    <h2>{{ title }}</h2>
+    <h1>{{ beteiligungsereignis.bezeichnung }}</h1>
+    </div>
+</div>
+    <p>
+    {% if beteiligungsereignis.unscharfes_datum == '%Y' %}
+    {{ beteiligungsereignis.start_datum|date:'Y' }} 
+    {% endif %}
+    {% if beteiligungsereignis.unscharfes_datum == '%Y-%m' %}
+    {{ beteiligungsereignis.start_datum|date:'M-Y' }} 
+    {% endif %}
+    {% if beteiligungsereignis.unscharfes_datum == '%Y-%m-%d' %}
+    {{ beteiligungsereignis.start_datum|date }} 
+    {% endif %}
+    {% if beteiligungsereignis.end_datum|date %} bis 
+    {% if beteiligungsereignis.unscharfes_end_datum == '%Y' %}
+    {{ beteiligungsereignis.end_datum|date:'Y' }} 
+    {% endif %}
+    {% if beteiligungsereignis.unscharfes_end_datum == '%Y-%m' %}
+    {{ beteiligungsereignis.end_datum|date:'F Y' }} 
+    {% endif %}
+    {% if beteiligungsereignis.unscharfes_end_datum == '%Y-%m-%d' %}
+    {{ beteiligungsereignis.end_datum|date }} 
+    {% endif %}    
+    {% endif %}</p>
+    <p><span class="label label-danger">Rohdaten: ungepr&uuml;ft und unbereinigt</span></p>
+</div>
+
+
+<div class="row">
+    <div class="col-md-3">
+    <p>Themengebiet</p>
+    <h5><p>{% if beteiligungsereignis.get_themengebiet_display %}
+        <span class="label label-primary">{{  beteiligungsereignis.get_themengebiet_display }}</span>
+    {% endif %}
+    {% if beteiligungsereignis.get_weiteres_themengebiet_display %}
+        <span class="label label-primary">{{  beteiligungsereignis.get_weiteres_themengebiet_display }}</span>
+    {% endif %}</p></h5>
+    </div>
+    <div class="col-md-2">
+    <p>Zielgruppe</p>
+    <p>{% if beteiligungsereignis.get_zielgruppe_display %}
+        <h5><span class="label label-primary">{{  beteiligungsereignis.get_zielgruppe_display }}</span></h5>
+    {% endif %}
+    </div>
+    <div class="col-md-2">
+    <p>politische Ebene</p>
+    <p>{% if beteiligungsereignis.get_ebene_sachfrage_display %}
+        <h5><span class="label label-primary">{{  beteiligungsereignis.get_ebene_sachfrage_display }}</span></h5>
+    {% endif %}
+    </div>
+    <div class="col-md-4">
+    </div>
+    </div>
+
+
+<div class="row">
+    <div class="col-md-8">
+            {% if beteiligungsereignis %}
+            <h4>Beschreibung</h4>
+            {% if beteiligungsereignis.beteiligungsprozess %}
+            <p>Dieses Beteiligungsereignis ist Teil des Beteiligungsprozess 
+            <a href="{% url 'beteiligungsprozess' beteiligungsereignis.gebietseinheit_id beteiligungsereignis.beteiligungsprozess.pk %}">{{ beteiligungsereignis.beteiligungsprozess.bezeichnung }}</a>.</p>
+            {% endif %}
+            <p>{{ beteiligungsereignis.beschreibung }}</p>
+            <h4>Sachfrage</h4>
+            <p>{{ beteiligungsereignis.sachfrage }}</p>
+            <h4>Entscheidung</h4>
+            {% if beteiligungsereignis.entscheidung %}
+            <p>{{ beteiligungsereignis.entscheidung }}</p>
+            {% else %}
+            <p>Keine Informationen vorhanden</p>
+            {% endif %}
+        </br>
+        <h4>Weitere Informationen</h4>    
+        <table class="table">
+            <tr>
+                <td>Initiator:</td>
+                <td>{{ beteiligungsereignis.get_initiator_display }}</td>
+            </tr>
+            <tr>
+                <td>Angegebenes Beteiligungsformat:</td>
+                <td>
+                {% if not beteiligungsereignis.get_methode_display == 'Andere, und zwar...' %}
+                {{ beteiligungsereignis.get_methode_display }}  
+                {% else %}
+                {{ beteiligungsereignis.andere_methode }}  
+                {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>Anzahl Teilnehmer:</td>
+                <td>
+                {% if beteiligungsereignis.anzahl_teilnehmer %}
+                {{ beteiligungsereignis.anzahl_teilnehmer }}  
+                {% else %}
+                keine Information vorhanden
+                {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>Online Komponente:</td>
+                <td>
+                {% if beteiligungsereignis.online_komponente %}
+                Beteiligungsereignis nutzt (auch) online Komponente
+                {% else %}
+                keine online Komponente vorhanden
+                {% endif %}</td>
+            </tr>
+            </table>
+
+            {% if beteiligungsereignis.weitere_dokumentation %}
+            <h4>Weitere Dokumentation (externe Links)</h4>
+                <p><a href="{{ beteiligungsereignis.weitere_dokumentation }}" target="_blank"><span class="glyphicon glyphicon-new-window"></span> {{ beteiligungsereignis.weitere_dokumentation|truncatechars:45 }}</span></a></p>
+            {% endif %}
+            {% if beteiligungsereignis.weitere_dokumentation_zusatzfeld_1 %}
+                <p><a href="{{ beteiligungsereignis.weitere_dokumentation_zusatzfeld_1 }}" target="_blank"><span class="glyphicon glyphicon-new-window"></span> {{ beteiligungsereignis.weitere_dokumentation_zusatzfeld_1|truncatechars:45 }}</span></a></p>
+            {% endif %}
+            {% if beteiligungsereignis.weitere_dokumentation_zusatzfeld_2 %}
+                <p><a href="{{ beteiligungsereignis.weitere_dokumentation_zusatzfeld_2 }}" target="_blank"><span class="glyphicon glyphicon-new-window"></span> {{ beteiligungsereignis.weitere_dokumentation_zusatzfeld_2|truncatechars:45 }}</span></a></p>
+            {% endif %}
+
+            {% endif %}
+            
+    </div>
+
+
+    <div class="col-md-4">
+            <div class="col-md-12">
+            <div class="well">
+                <a href="{% url 'gemeindeansicht' beteiligungsereignis.gebietseinheit_id %}"> <img src="{{ infobox_erweiterung.wappen.url }}" alt="Wappen {{ infobox_erweiterung.ortsname_suche }}" width="100" align="right"></a>
+                <h3>{{ infobox_erweiterung.ortsname_suche }} </h3>
+                <p>{{ infobox.get_textkennzeichen_display }} im Kreis {{ infobox.kreisname }} ({{ infobox.landname }})</p>
+                <p>Regionalsschl&uuml;ssel: {{ infobox.regionalschluessel }}</p>
+                
+
+                <h4>Gemeindeverwaltung:</h4>
+                <p>{{ infobox_erweiterung.strasse_gv }}</br>
+                {{ infobox_erweiterung.plz_ort_gv }}</br>
+                {% if user.is_authenticated %}
+                <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:{{ infobox_erweiterung.mail_gv }}">{{ infobox_erweiterung.mail_gv }}</a></br>
+                {% else %}
+                <span class="glyphicon glyphicon-envelope"></span> <em>E-Mail-Adresse nach Anmeldung sichtbar</em></br>
+                {% endif %}
+                <span class="glyphicon glyphicon-globe"></span> <a href="{{ infobox_erweiterung.homepage_gv }}" target="blank">{{ infobox_erweiterung.homepage_gv }}</a></p>
+
+
+                {% if user.is_authenticated %}
+                <h4>Ansprechpartner:</h4>
+                <p>{{ infobox_erweiterung.get_ansprechpartner_anrede_display }} {{ infobox_erweiterung.ansprechpartner_vorname }} {{ infobox_erweiterung.ansprechpartner_name }}</br>
+                    {{ infobox_erweiterung.ansprechpartner_funktion }}</br>
+                    <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:{{ infobox_erweiterung.ansprechpartner_mail }}">{{ infobox_erweiterung.ansprechpartner_mail }}</a></br>
+                    <span class="glyphicon glyphicon-earphone"></span> {{ infobox_erweiterung.ansprechpartner_telefon }}</p>
+                {% else %}
+                {% endif %}
+
+                <h4>Basisdaten:</h4>
+                <p>Einwohner: {{ infobox.bevoelkerung }} ({{ infobox.bevolkerungsdichte }} pro km<sup>2</sup>)</br>
+                Fl&auml;che: {{ infobox.flaeche }} km<sup>2</sup></br>
+                Urbanisierungsgrad: {{ infobox.get_verstaedterung_display }}</br>
+</div>
+            </div>
+        </div>
+ </div>
+
+<div class="row">
+    <div class="col-md-12">
+        </br>
+    <p><a class="btn btn-default" href="{% url 'gemeindeansicht' beteiligungsereignis.gebietseinheit_id %}">Zur&uuml;ck zur Gesamt&uuml;bersicht {{ infobox_erweiterung.ortsname_suche }} &raquo;</a></p>
+    </div>
+</div>
+
+
+            
+{% endblock %}

@@ -1,6 +1,21 @@
 from django.db import models
+from django.db.models import Max
 
 # Create your models here.
+
+
+class Nur_BW_Gemeinden_Manager(models.Manager):
+    """
+    Manager um Ba-Wü Gemeinden zu filtern.
+
+    Dieser Manager zum Modell `Gebietseinheit`` filtert nach Bundesland über
+    die Variable `land` das Merkmal ``08`` (Baden-Württemberg), sowie über 
+    die Variable ``textkennzeichen`` das Merkmal ``60`` (Gemeinde).
+    """
+
+    def get_queryset(self):
+        return super(Nur_BW_Gemeinden_Manager, self).get_queryset().filter(land='08').filter(satzart='60')
+
 
 class Gebietseinheit(models.Model):
     """
@@ -81,7 +96,6 @@ class Gebietseinheit(models.Model):
 
     
     objects = models.Manager() # The default manager.
-    bw_objects = BW_Gebietseinheiten_Manager() # Manager für baden-würrtembergische Gebietseinheiten
     gde_objects = Nur_BW_Gemeinden_Manager() # Manager für baden-würrtembergische Gemeinden
 
     class Meta:
@@ -130,3 +144,102 @@ class Gebietseinheit_Erweiterung(models.Model):
 
     def __str__(self):
         return '%s' % (self.gebietseinheit)
+
+
+    
+class Bearbeitungsstand(models.Model):
+    """
+    Diese Klasse ist ein Modell für den Bearbeitungsstand einer Kommune.
+    
+    Dieses Modell speichert den aktuellen Bearbeitungsstatus der Kommunen. Für 
+    jede Kommune wird ein Ersteintrag mit dem Status 0-unbearbeitet angelegt. 
+    Jede Änderung des Bearbeitungstatus generiert einen neuen Eintrag für die 
+    Kommune.
+
+    Das Modell dokumentiert somit den Zeitpunkte der jeweiligen Statusänderung. 
+    Auf das Modell wird zugegriffen durch [XXX], um die nächste zu bearbeitende 
+    Kommune auszuwählen.
+    """
+
+    BEARBEITUNGSSTAND_CHOICE = (
+        ('0', 'unbearbeitet'),
+        ('1', 'Rohtreffer generiert'),
+        ('2', 'Rohtreffer bereinigt'),
+        ('3', 'Kodierauftrag zugeteilt'),
+        ('4', 'Rohtreffer kodiert'),
+        ('5', 'Treffer aufbereitet'),
+        ('6', 'Ergebnisse veröffentlicht'),
+        ('7', 'Ergebnisse in ext. Prüfung'),
+        ('8', 'Ergebnisse geprüft'),
+        )
+    gebietseinheit = models.ForeignKey(Gebietseinheit, on_delete=models.PROTECT, 
+                                       limit_choices_to={'satzart': '60', 'land': '08'},
+                                       help_text="Name der Kommune")
+    bearbeitungsstand =  models.CharField(max_length=1, choices=BEARBEITUNGSSTAND_CHOICE, default='0',
+                                          help_text="Bearbeitungsstand der Kommune")
+    erstellt_am =  models.DateField(auto_now_add=True)
+
+    objects = models.Manager() # The default manager.
+
+
+    class Meta:
+        verbose_name_plural = 'Bearbeitungsstand'
+        unique_together = (("gebietseinheit", "bearbeitungsstand"),)
+        get_latest_by = 'erstellt_am'
+
+    def __str__(self):
+        return 'ID: %s %s Stand: %s' % (self.id, self.gebietseinheit, self.bearbeitungsstand)
+ 
+def bearbeitungsstand_max(bearbeitungsstand_query):
+    """
+        
+    """
+
+    alle=list(set(bearbeitungsstand_query.values_list('gebietseinheit', flat=True)))
+    fre_bearbeitungsstand=[]
+    for i in alle:
+        b=bearbeitungsstand_query.filter(gebietseinheit=i)
+        c=b.aggregate(Max('bearbeitungsstand'))
+        d=b.get(bearbeitungsstand=c.get('bearbeitungsstand__max')).gebietseinheit_id
+        fre_bearbeitungsstand.append({'gebietseinheit': d, 'bearbeitungsstand_max': c.get('bearbeitungsstand__max')})        
+    
+    bearbeitungsstand_0=[]    
+    bearbeitungsstand_1=[]
+    bearbeitungsstand_2=[]
+    bearbeitungsstand_3=[]
+    bearbeitungsstand_4=[]
+    bearbeitungsstand_5=[]
+    bearbeitungsstand_6=[]
+    bearbeitungsstand_7=[]
+
+    for item in fre_bearbeitungsstand:
+        if item['bearbeitungsstand_max']=='0':
+            bearbeitungsstand_0.append(item['gebietseinheit'])
+        if item['bearbeitungsstand_max']=='1':
+            bearbeitungsstand_1.append(item['gebietseinheit'])
+        if item['bearbeitungsstand_max']=='2':
+            bearbeitungsstand_2.append(item['gebietseinheit'])
+        if item['bearbeitungsstand_max']=='3':
+            bearbeitungsstand_3.append(item['gebietseinheit'])
+        if item['bearbeitungsstand_max']=='4':
+            bearbeitungsstand_4.append(item['gebietseinheit'])
+        if item['bearbeitungsstand_max']=='5':
+            bearbeitungsstand_5.append(item['gebietseinheit'])
+        if item['bearbeitungsstand_max']=='6':
+            bearbeitungsstand_6.append(item['gebietseinheit'])
+        if item['bearbeitungsstand_max']=='7':
+            bearbeitungsstand_7.append(item['gebietseinheit'])
+
+    bearbeitungsstand_liste_0 = bearbeitungsstand_query.filter(bearbeitungsstand=0).filter(gebietseinheit__in=bearbeitungsstand_0)
+    bearbeitungsstand_liste_1 = bearbeitungsstand_query.filter(bearbeitungsstand=1).filter(gebietseinheit__in=bearbeitungsstand_1)
+    bearbeitungsstand_liste_2 = bearbeitungsstand_query.filter(bearbeitungsstand=2).filter(gebietseinheit__in=bearbeitungsstand_2)
+    bearbeitungsstand_liste_3 = bearbeitungsstand_query.filter(bearbeitungsstand=3).filter(gebietseinheit__in=bearbeitungsstand_3)
+    bearbeitungsstand_liste_4 = bearbeitungsstand_query.filter(bearbeitungsstand=4).filter(gebietseinheit__in=bearbeitungsstand_4)
+    bearbeitungsstand_liste_5 = bearbeitungsstand_query.filter(bearbeitungsstand=5).filter(gebietseinheit__in=bearbeitungsstand_5)
+    bearbeitungsstand_liste_6 = bearbeitungsstand_query.filter(bearbeitungsstand=6).filter(gebietseinheit__in=bearbeitungsstand_6)
+    bearbeitungsstand_liste_7 = bearbeitungsstand_query.filter(bearbeitungsstand=7).filter(gebietseinheit__in=bearbeitungsstand_7)
+    bearbeitungsstand_max=[bearbeitungsstand_liste_0, bearbeitungsstand_liste_1, bearbeitungsstand_liste_2, 
+                            bearbeitungsstand_liste_3, bearbeitungsstand_liste_4, bearbeitungsstand_liste_5,
+                            bearbeitungsstand_liste_6, bearbeitungsstand_liste_7]
+
+    return(bearbeitungsstand_max)
