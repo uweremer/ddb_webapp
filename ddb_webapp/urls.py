@@ -17,6 +17,11 @@ from django.contrib import admin
 from django.urls import include, path
 import baseapp.views
 
+
+from django.conf import settings
+from django.contrib.staticfiles.urls import static
+
+
 urlpatterns = [
     path('', baseapp.views.home, name='home'),
     path('projekt', baseapp.views.projektbeschreibung, name='projektbeschreibung'),
@@ -26,3 +31,6 @@ urlpatterns = [
     path('auswertungen/', include('ddb_showcase.urls')),
     path('basisdaten/', include('basisdaten.urls')),
 ]
+
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
