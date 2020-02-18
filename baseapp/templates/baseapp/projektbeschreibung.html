@@ -7,6 +7,7 @@
     <p class="lead">Ein Forschungsprojekt zur Vermessung der Beteiligungslandschaft in Baden-W&uuml;rttemberg.</p>
 </div>
 
+<div class="container">
 <div class="row">
     <div class="col-md-12 text-justify">
     <h2>Das Projekt</h2>
@@ -46,6 +47,7 @@
         <a href="https://developers.google.com/custom-search/" target="_blank"><span class="fa fa-external-link"></span> "Google Custom Search <acronym title="Application Programming Interface" xml:lang="de" lang="de">API</acronym>"</a> durchgef&uuml;hrt. .Die automatisierten Suchanfragen geben jeweils einen Datensatz aus Suchtreffern zur&uuml;ck (theoretische max. 1,5 Mio.), die f&uuml;r jede gefundene Webseite deren URL, den Seitentitel und einen Textschnipsel ("Snippet") enthalten. Der Textschnipsel ist ein kurzer Ausschnitt aus der Webseite, der den Kontext der Suchbegriffe auf der Webseite wiedergibt. Die Struktur der Ergebnisse der automatisierten Abfrage gleicht also der einer manuellen Recherche. Der Unterschied ist, dass direkt ein Datensatz produziert wird.</p>
         <p>Die Resultate aller Anfragen werden dann in einer relationalen Datenbank zusammengef&uuml;hrt und dem jeweiligen Ort und Suchbegriff zugeordnet. Die vorliegenden Suchtreffer werden zuerst automatisch mit einer Blacklist abgeglichen. Die verbleibenden Treffer werden dann zun&auml;chst auf Basis des Titels der Webseite und dem Inhalt des Textschnipsels durch Hilfskr&auml;fte manuell kodiert. Bei dieser ersten Kodierung wird unterschieden zwischen eindeutig irrelevanten Treffern und potentiell relevanten Treffern. Nur die Webseiten der potentiell relevanten Treffer werden einzeln aufgerufen und durchgesehen. Treffer die dann inhaltlich nicht relevant sind, werden ausgeschlossen. Treffer die tats&auml;chlich relevant sind werden redaktionell ausgewertet, d.h., die dort vorgefundenen Beteiligungsverfahren werden in einer neuen Tabelle gesammelt und die zu erhebenden Merkmale dokumentiert. Werden mehrere Beteiligungsverfahren identifiziert die zu einem &uuml;bergeordneten Beteiligungsprozess geh&ouml;ren, wird in einer separaten Tabelle ein Eintrag f&uuml;r den Beteiligungsprozess angelegt.</p>
 </div>   
+</div>
 </div>
 
 {% endblock %}
