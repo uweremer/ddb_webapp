@@ -12,7 +12,7 @@ def home(request):
         request,
         'baseapp/index.html',
         {
-            'title': 'Startseite',
+            'title': 'Bürgerbeteiligung in Baden-Württemberg',
             'year':datetime.now().year,
             'nbar': 'home',
         }
