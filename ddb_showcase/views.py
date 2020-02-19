@@ -12,7 +12,7 @@ def zusammenfassung(request):
         request,
         'ddb_showcase/zusammenfassung.html',
         {
-            'title': 'Zusammenfassung - Bürgerbetieligung in Baden-Württemberg',
+            'title': 'Zusammenfassung - Bürgerbeteiligung in Baden-Württemberg',
             'year':datetime.now().year,
             'nbar': 'zusammenfassung',
         }
