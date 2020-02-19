@@ -20,9 +20,41 @@
         <p>Das Projekt am <a href="https://www.sowi.uni-stuttgart.de/" target="_blank">Institut f&uuml;r Sozialwissenschaften</a> der Universit&auml;t Stuttgart versucht diese L&uuml;cke zu schlie&szlig;en, indem es eine Vollerhebung der Beteiligungslandschaft in Baden-W&uuml;rttemberg anstrebt. Mit einer teilautomatisierten onlinebasierten Erhebung, sollen sattfindende Beteiligungsverfahren identifiziert werden. Die gewonnenen Daten werden rekursiv genutzt, um den Suchalgorithmus zu optimieren und mittels maschinellem Lernen den Automatisierungsanteil der Datenerhebung zu erh&ouml;hen. Als Datenbank sollen die gefundenen Treffer schon w&auml;hrend der Erhebungsphase der (Fach-)&ouml;ffentlichkeit zur Verf&uuml;gung stehen.</p>
     </div>  
     <div class="col-md-2">
-        <img src="{% static '/graphics/sample_karte.png' %}" width="150px" alt="Landkarte Baden-W&uuml;rttemberg mit Anzahl der Beteiligungsereignisse in den Kommunen">
+        <div data-toggle="tooltip" title="Klicken und vergr&ouml;&szlig;ern">
+        <!-- Button to Open the Modal -->
+        <input type="image" data-toggle="modal" data-target="#myModal" 
+               src="{% static '/graphics/projektbeschreibung/bearbeitungsstand.png' %}" 
+               class="img-fluid mx-auto d-block"
+               alt="Landkarte Baden-W&uuml;rttemberg mit den bearbeiteten Kommunen"></input>
+    </div>
     </div>
 </div>
+
+
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h5 class="modal-title">Karte der 831 bisher bearbeiteten Kommunen</h5>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div>
+        <img src="{% static '/graphics//projektbeschreibung/bearbeitungsstand.png' %}" 
+             alt="Landkarte Baden-W&uuml;rttemberg mit den 831 bisher bearbeiteten Kommunen"
+             class="img-fluid mx-auto d-block">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 
 <div class="row">
     <div class="col-md-2 text-justify">
@@ -34,8 +66,41 @@
 
 <div class="row">
     <div class="col-md-2">
-        <img src="{% static '/graphics/ablauf_kodierung.png' %}" width="150px" alt="Landkarte Baden-W&uuml;rttemberg mit Anzahl der Beteiligungsereignisse in den Kommunen">
+        <div data-toggle="tooltip" title="Klicken und vergr&ouml;&szlig;ern">
+        <!-- Button to Open the Modal -->
+        <input type="image" data-toggle="modal" 
+               data-target="#myModal2" 
+               src="{% static '/graphics/projektbeschreibung/ablauf_kodierung.svg' %}" 
+               class="img-fluid mx-auto d-block"
+               alt="Arbeitsschritte der Datenerhebung zur Identifikation von Beteiligungsereignissen"></input>
     </div>
+    </div>
+
+
+<!-- The Modal2 -->
+<div class="modal fade" id="myModal2">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h5 class="modal-title">Arbeitsschritte der Datenerhebung zur Identifikation von Beteiligungsereignissen</h5>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div>
+        <img src="{% static '/graphics/projektbeschreibung/ablauf_kodierung.svg' %}" 
+             alt="Arbeitsschritte der Datenerhebung zur Identifikation von Beteiligungsereignissen"
+             class="img-fluid mx-auto d-block">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
     <div class="col-md-10 text-justify">    
 
         <p>Ausgangspunkt f&uuml;r die Erhebung der Beteiligungsverfahren ist eine Recherchematrix, nach welcher sich Suchanfragen systematisch abarbeiten lassen. Die Recherchematrix bildet die Grundlage f&uuml;r die Suchstrategie und besteht aus den drei Vektoren: Verfahrensbezeichnung, Ort und Suchraum. Die Elemente der Vektoren werden durch Permutation ohne Wiederholung kombiniert und bilden so die jeweiligen Suchanfragen. Die Vektoren selbst bestehen aus den folgenden Inhalten, die zuvor festgelegt werden m&uuml;ssen:</p>
@@ -49,6 +114,8 @@
 </div>   
 </div>
 </div>
+
+
 
 {% endblock %}
 
