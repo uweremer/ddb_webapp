@@ -79,12 +79,12 @@ from django.views.generic.list import ListView
 
 class GemeindeListView(ListView):
     model = Gebietseinheit
-    paginate_by = 1103  # if pagination is desired
+    paginate_by = 100  # if pagination is desired
     queryset = Gebietseinheit.gde_objects.all().order_by('name')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['now'] = timezone.now()
+        context['year'] = datetime.now().year
         return context
 
 # Use Listviews: https://docs.djangoproject.com/en/1.11/topics/class-based-views/generic-display/
