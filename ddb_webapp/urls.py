@@ -28,7 +28,8 @@ urlpatterns = [
     path('datenschutz', baseapp.views.datenschutz, name='datenschutz'),
     path('kontakt', baseapp.views.contact, name='contact'),
     path('admin/', admin.site.urls),
-    path('auswertungen/', include('ddb_showcase.urls')),
+    path('auswertungen/', include('ddb_showcase.urls_auswertungen')),
+    path('daten/', include('ddb_showcase.urls_daten')),
     path('basisdaten/', include('basisdaten.urls')),
 ]
 
