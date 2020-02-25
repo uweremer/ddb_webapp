@@ -7,6 +7,7 @@ email_devel_inbox/
 deploy/
 obj/
 media/
+ddb_webapp/whoosh_index/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

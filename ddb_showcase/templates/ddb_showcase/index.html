@@ -1,0 +1,92 @@
+{% extends "baseapp/layout.html" %}
+
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>{{title}}</h1>
+    <p class="lead">Nutzen Sie die Volltextsuche um nach Gemeinden, Beteiligungsprojekten oder Beteiligungsereignissen in Baden-W&uuml;rttemberg zu suchen.</p>
+
+        <p><em>Beteiligungsereignisse</em> sind die 'Grundeinheit' der Beteiligung. Ein Ereignis ist eine zeitlich abgrenzbare
+        Beteiligungsveranstaltung oder andere Form der Beteiligung.  Es kann Teil eines &uuml;bergeordneten Beteiligungsprojektes sein, aber 
+        auch als Einzeleregnis auftreten. <em>Beteiligungsprojekte</em> bestehen aus mehreren Beteiligungsereignissen, die &uuml;ber eine 
+        gemeinsame Sachfrage miteinander verbunden sind. </p>
+</div>
+
+
+
+<div class="container">
+            <div class="row">    
+
+</div>
+
+    <form method="get" action=".">
+        <div class="row">    
+            <div class="col-xs-8">
+		        <div class="input-group">
+                    <input id="id_q" type="text" class="form-control" name="q" placeholder="suche nach...">
+                    <div class="input-group-append">
+                    <button class="btn btn-outline-secondary btn-sm" type="submit">Suchen</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <p></p>
+            </div>
+        <div class="row">
+        {% if query %}
+            <h4>Suchergebnisse</h4>
+            </div>
+            <div class="row">
+            <p>Die Suche nach <em>"{{ query }}"</em> ergab <span class="badge badge-pill badge-secondary">{{ page_obj.paginator.count }}</span> Treffer.</p>
+            </div>
+
+            <div class="row">  
+                <ul class="list-group list-group-flush">
+                    {% for result in page_obj.object_list %}
+                        <li class="list-group-item pb-0">
+                        {% if result.object.regionalschluessel %}
+                            <p><small>Gemeinde</small></br>
+                            <a href="{% url 'gemeindeansicht' result.object.pk  %}">{{ result.object.name }}: {{ result.object.get_textkennzeichen_display }}</a></br>
+                            </p>
+                        {% else %}
+                            <p><small>Beteiligungsereignis</small></br>
+                            <a href="{% url 'beteiligungsereignis' result.object.gebietseinheit_id result.object.pk %}">{{ result.object.gebietseinheit.name }}: {{ result.object.bezeichnung }}</a></br>
+                            {{ result.object.start_datum }} - {{ result.object.beschreibung|truncatechars:140 }}</p>
+                        {% endif %}     
+
+                        {% endfor %}
+                        </li>
+                    </ul>
+                </div>
+            <div class="row"> 
+                        {% if page_obj.has_previous or page_obj.has_next %}
+    <ul class="pagination">
+        {% if page_obj.has_previous %}
+            <li class="page-item"><a class="page-link" href="?q={{ query }}&amp;page=1">&laquo; Erste</a></li>
+            <li class="page-item"><a class="page-link" href="?q={{ query }}&amp;page={{ page_obj.previous_page_number }}">zur&uuml;ck</a></li>
+        {% endif %}
+
+        <li class="page-item active">
+            <a class="page-link">Seite {{ page_obj.number }} von {{ page_obj.paginator.num_pages }}</a>
+        </li>
+
+        {% if page_obj.has_next %}
+            <li class="page-item"><a class="page-link" href="?q={{ query }}&amp;page={{ page_obj.next_page_number }}">n&auml;chste</a></li>
+            <li class="page-item"><a class="page-link" href="?q={{ query }}&amp;page={{ page_obj.paginator.num_pages }}">Letzte &raquo;</a></li>
+        {% endif %}
+    </ul>
+                <div>
+</div>
+
+
+                        {% endif %}
+                        {% else %}
+        {% endif %}
+                
+                </div>
+    </form>
+</div>
+
+{% endblock %}

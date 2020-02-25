@@ -32,6 +32,7 @@ if CRED[1] == 'development':
     # SECURITY WARNING: don't run with debug turned on in production!
     DEBUG = True
     ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'testserver']
+    INTERNAL_IPS = ['127.0.0.1',]
 
     # EMails are redirected to file
     EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
@@ -63,13 +64,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #'haystack',
+    'haystack',
     # Own Apps
     'baseapp',
     'basisdaten',
     'ddb_showcase',
-
 ]
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -81,6 +83,11 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+if DEBUG:
+    INSTALLED_APPS = INSTALLED_APPS + ['debug_toolbar']
+    MIDDLEWARE = ['debug_toolbar.middleware.DebugToolbarMiddleware',] + MIDDLEWARE
+
 
 ROOT_URLCONF = 'ddb_webapp.urls'
 
@@ -116,6 +123,16 @@ DATABASES = {
         'PORT': '',
     },
 }
+
+
+#Whoosh Search Backend
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+        'PATH': os.path.join(os.path.dirname(__file__), 'whoosh_index'),
+    },
+}
+HAYSTACK_SEARCH_RESULTS_PER_PAGE = 10
 
 
 # Password validation

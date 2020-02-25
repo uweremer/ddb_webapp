@@ -290,3 +290,22 @@ class Dauereinrichtung(Dauereinrichtung_Abstract):
 
 
 
+class Search(models.Lookup):
+    """ 
+    Custom Lookup as fallback for haystack full text search
+
+    Haystack is not compatible with django>=3, as the six-lib was removed from utils.
+    This lookup implements full text search as described here https://stackoverflow.com/a/55985693
+    """
+
+    lookup_name = 'search'
+
+    def as_mysql(self, compiler, connection):
+        lhs, lhs_params = self.process_lhs(compiler, connection)
+        rhs, rhs_params = self.process_rhs(compiler, connection)
+        params = lhs_params + rhs_params
+        return 'MATCH (%s) AGAINST (%s IN BOOLEAN MODE)' % (lhs, rhs), params
+
+models.CharField.register_lookup(Search)
+models.TextField.register_lookup(Search)
+

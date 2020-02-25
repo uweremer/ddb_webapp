@@ -1,12 +1,21 @@
 from django.shortcuts import render
-from django.http import HttpRequest
+from django.http import HttpRequest, HttpResponse, Http404
+from django.template import loader # um Templates zu laden
+from django.views.generic.list import ListView
 from datetime import datetime
+from django.utils import timezone
+from django.db.models import Count, Max
+from django.db.models import Q
+from haystack.generic_views import SearchView
 
-# Create your views here.
+from basisdaten.models import Gebietseinheit
+from basisdaten.models import Bearbeitungsstand
+from basisdaten.models import Gebietseinheit_Erweiterung
+from ddb_showcase.models import Beteiligungsereignis, Beteiligungsprozess, Dauereinrichtung
 
-
+# Static Pages
 def zusammenfassung(request):
-    """Renders the home page."""
+    """Renders the zusammenfassung page."""
     assert isinstance(request, HttpRequest)
     return render(
         request,
@@ -19,7 +28,7 @@ def zusammenfassung(request):
     )
 
 def dialogbeteiligung(request):
-    """Renders the home page."""
+    """Renders the dialogbeteiligung page."""
     assert isinstance(request, HttpRequest)
     return render(
         request,
@@ -32,7 +41,7 @@ def dialogbeteiligung(request):
     )
 
 def jugendbeteiligung(request):
-    """Renders the home page."""
+    """Renders the jugendbeteiligung page."""
     assert isinstance(request, HttpRequest)
     return render(
         request,
@@ -44,24 +53,20 @@ def jugendbeteiligung(request):
         }
     )
 
-from django.shortcuts import render
 
-from django.http import HttpResponse
-from django.template import loader # um Templates zu laden
-from datetime import datetime
-from django.http import Http404
-from django.template import loader # um Templates zu laden
+def suf(request):
+    """Renders the Sciebtific Use File page."""
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'ddb_showcase/suf.html',
+        {
+            'title': 'Scientific Use File',
+            'year':datetime.now().year,
+            'nbar': 'suf',
+        }
+    )
 
-
-from basisdaten.models import Gebietseinheit
-from basisdaten.models import Bearbeitungsstand
-from basisdaten.models import Gebietseinheit_Erweiterung
-from ddb_showcase.models import Beteiligungsereignis, Beteiligungsprozess, Dauereinrichtung
-
-
-from django.db.models import Count, Max
-
-# Create your views here.
 
 
 def beteiligungsverfahren(request):
@@ -74,10 +79,11 @@ def beteiligungsverfahren(request):
         }
     )
 
-from django.utils import timezone
-from django.views.generic.list import ListView
 
 class GemeindeListView(ListView):
+    """
+    ListView aller Gemeinden mit Link auf die Gemeindeüberischt
+    """
     model = Gebietseinheit
     paginate_by = 100  # if pagination is desired
     queryset = Gebietseinheit.gde_objects.all().order_by('name')
@@ -190,15 +196,41 @@ def beteiligungsprozess(request, gebietseinheit_id, beteiligungsprozess_id):
     return render(request, 'ddb_showcase/beteiligungsprozess.html', context)
 
 
-def suf(request):
-    """Renders the home page."""
-    assert isinstance(request, HttpRequest)
-    return render(
-        request,
-        'ddb_showcase/suf.html',
-        {
-            'title': 'Scientific Use File',
-            'year':datetime.now().year,
-            'nbar': 'suf',
-        }
-    )
+
+
+
+
+from ddb_showcase import forms
+from haystack.query import SearchQuerySet
+class SuchseiteView(SearchView):
+    """My custom search view."""
+
+    template_name = './ddb_showcase/index.html'
+    queryset = SearchQuerySet().all()
+    form_class = forms.DateRangeSearchForm
+
+    def get_queryset(self):
+        queryset = super(SuchseiteView, self).get_queryset()
+        # further filter queryset based on some set of criteria
+        return queryset
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(SuchseiteView, self).get_context_data(*args, **kwargs)
+        context['title'] = 'Daten durchsuchen'
+        context['year'] = datetime.now().year
+        context['nbar'] = 'suchseite'
+        return context
+
+
+#import simplejson as json
+#from django.http import HttpResponse
+#from haystack.query import SearchQuerySet
+#def autocomplete(request):
+#    sqs = SearchQuerySet().autocomplete(content_auto=request.GET.get('q', ''))[:5]
+#    suggestions = [result.title for result in sqs]
+#    # Make sure you return a JSON object, not a bare list.
+#    # Otherwise, you could be vulnerable to an XSS attack.
+#    the_data = json.dumps({
+#        'results': suggestions
+#    })
+#    return HttpResponse(the_data, content_type='application/json')

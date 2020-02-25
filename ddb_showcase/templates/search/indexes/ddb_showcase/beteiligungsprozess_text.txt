@@ -1,0 +1,3 @@
+{{ object.bezeichnung }}
+{{ object.beschreibung }}
+{{ object.gebietseinheit }}
