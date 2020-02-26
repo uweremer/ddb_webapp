@@ -33,9 +33,13 @@
     <Content Include="basisdaten\fixtures\basisdaten_ddb1.json" />
     <Content Include="basisdaten\templates\basisdaten\index.html" />
     <Content Include="basisdaten\templates\search\indexes\basisdaten\gebietseinheit_text.txt" />
+    <Content Include="ddb_showcase\templates\ddb_showcase\beteiligungsereignis.html" />
+    <Content Include="ddb_showcase\templates\ddb_showcase\beteiligungsprozess.html" />
+    <Content Include="ddb_showcase\templates\ddb_showcase\gemeindeansicht.html" />
     <Content Include="ddb_showcase\templates\ddb_showcase\index.html" />
     <Content Include="ddb_showcase\templates\ddb_showcase\jugendbeteiligung.html" />
     <Content Include="ddb_showcase\templates\ddb_showcase\dialogbeteiligung.html" />
+    <Content Include="ddb_showcase\templates\ddb_showcase\suf.html" />
     <Content Include="ddb_showcase\templates\ddb_showcase\zusammenfassung.html" />
     <Content Include="baseapp\templates\baseapp\layout.html" />
     <Content Include="baseapp\templates\baseapp\login.html" />
@@ -43,7 +47,6 @@
     <Content Include="credentials_template.txt" />
     <Content Include="ddb_showcase\templates\search\indexes\ddb_showcase\beteiligungsereignis_text.txt" />
     <Content Include="ddb_showcase\templates\search\indexes\ddb_showcase\beteiligungsprozess_text.txt" />
-    <Content Include="ddb_showcase\templates\search\search.html" />
     <Content Include="README.md" />
     <Content Include="requirements.txt" />
   </ItemGroup>

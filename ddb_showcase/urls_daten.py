@@ -15,6 +15,5 @@ urlpatterns = [
     path('gemeinden/<int:gebietseinheit_id>', ddb_showcase.views.gemeindeansicht, name='gemeindeansicht'),
     re_path(r'^(?P<gebietseinheit_id>[0-9]+)/beteiligungsereignis/(?P<beteiligungsereignis_id>[0-9]+)$', ddb_showcase.views.beteiligungsereignis, name='beteiligungsereignis'),
     re_path(r'^(?P<gebietseinheit_id>[0-9]+)/beteiligungsprozess/(?P<beteiligungsprozess_id>[0-9]+)$', ddb_showcase.views.beteiligungsprozess, name='beteiligungsprozess'),
-    re_path(r'^search/', include('haystack.urls')),
     re_path(r'^durchsuchen/', views.SuchseiteView.as_view(form_class=forms.DateRangeSearchForm), name='suchseite')
 ]
