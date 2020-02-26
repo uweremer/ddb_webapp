@@ -3,3 +3,4 @@ mysqlclient == 1.4.6
 git+git://github.com/django-haystack/django-haystack@d957aead289f4583c43b49fae84efb10b810ea2b#egg=django-haystack
 whoosh == 2.7.4
 django-debug-toolbar == 2.2
+django-request == 1.5.5
