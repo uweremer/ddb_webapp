@@ -1,1 +1,5 @@
+{{ object.bezeichnung }}
 {{ object.beschreibung }}
+{{ object.gebietseinheit.name }}
+{{ object.get_methode_display }}
+{{ object.get_themengebiet_display }}

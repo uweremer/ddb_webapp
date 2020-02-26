@@ -15,7 +15,7 @@ class BeteiligungsereignisIndex(indexes.SearchIndex, indexes.Indexable):
 
     def index_queryset(self, using=None):
         """Used when the entire index for model is updated."""
-        return self.get_model().objects.filter(stand__lte=datetime.datetime.now()).filter(start_datum__gte=datetime.date(year=2019, month=1, day=1))
+        return self.get_model().objects.filter(stand__lte=datetime.datetime.now()).filter(start_datum__gte=datetime.date(year=2015, month=1, day=1))
 
 class BeteiligungsprozessIndex(indexes.SearchIndex, indexes.Indexable):
     text = indexes.CharField(document=True, use_template=True)
@@ -27,7 +27,7 @@ class BeteiligungsprozessIndex(indexes.SearchIndex, indexes.Indexable):
 
     def index_queryset(self, using=None):
         """Used when the entire index for model is updated."""
-        return self.get_model().objects.filter(stand__lte=datetime.datetime.now()).filter(start_datum__gte=datetime.date(year=2019, month=1, day=1))
+        return self.get_model().objects.filter(stand__lte=datetime.datetime.now()).filter(start_datum__gte=datetime.date(year=2015, month=1, day=1))
 
 class GebietseinheitIndex(indexes.SearchIndex, indexes.Indexable):
     text = indexes.CharField(document=True, use_template=True)
