@@ -65,6 +65,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'haystack',
+    'request',
     # Own Apps
     'baseapp',
     'basisdaten',
@@ -82,6 +83,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'request.middleware.RequestMiddleware',
 ]
 
 if DEBUG:
@@ -134,6 +136,12 @@ HAYSTACK_CONNECTIONS = {
 }
 HAYSTACK_SEARCH_RESULTS_PER_PAGE = 10
 
+# Login Requests with https://django-request.readthedocs.io/en/latest
+REQUEST_ANONYMOUS_IP = True
+REQUEST_LOG_USER = False
+REQUEST_IGNORE_PATHS = (
+    r'^admin/',
+)
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
