@@ -290,22 +290,19 @@ class Dauereinrichtung(Dauereinrichtung_Abstract):
 
 
 
-class Search(models.Lookup):
-    """ 
-    Custom Lookup as fallback for haystack full text search
+    
+class Suchanfrage(models.Model):
+    """
+    Diese Klasse ist ein Modell, dass Suchanfragen loggt.
 
-    Haystack is not compatible with django>=3, as the six-lib was removed from utils.
-    This lookup implements full text search as described here https://stackoverflow.com/a/55985693
     """
 
-    lookup_name = 'search'
+    querystring = models.CharField(max_length=100, help_text="Suchanfrage", blank=True, null=True)
+    results = models.IntegerField(blank=True, null=True, help_text="Anzahl der angezeigten Treffer")
+    date_of_query =  models.DateField(auto_now_add=True, help_text="Datum der Suchanftrage wird automatisch eingefügt")
+   
+    class Meta:
+        verbose_name_plural = 'Suchanfragen'
 
-    def as_mysql(self, compiler, connection):
-        lhs, lhs_params = self.process_lhs(compiler, connection)
-        rhs, rhs_params = self.process_rhs(compiler, connection)
-        params = lhs_params + rhs_params
-        return 'MATCH (%s) AGAINST (%s IN BOOLEAN MODE)' % (lhs, rhs), params
-
-models.CharField.register_lookup(Search)
-models.TextField.register_lookup(Search)
-
+    def __str__(self):
+        return '%s' % (self.querystring)

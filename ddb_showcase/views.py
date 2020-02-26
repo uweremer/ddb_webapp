@@ -11,7 +11,7 @@ from haystack.generic_views import SearchView
 from basisdaten.models import Gebietseinheit
 from basisdaten.models import Bearbeitungsstand
 from basisdaten.models import Gebietseinheit_Erweiterung
-from ddb_showcase.models import Beteiligungsereignis, Beteiligungsprozess, Dauereinrichtung
+from ddb_showcase.models import Beteiligungsereignis, Beteiligungsprozess, Dauereinrichtung, Suchanfrage
 
 # Static Pages
 def zusammenfassung(request):
@@ -198,16 +198,17 @@ def beteiligungsprozess(request, gebietseinheit_id, beteiligungsprozess_id):
 
 
 
-
-
 from ddb_showcase import forms
 from haystack.query import SearchQuerySet
+
 class SuchseiteView(SearchView):
     """My custom search view."""
-
     template_name = './ddb_showcase/index.html'
     queryset = SearchQuerySet().all()
     form_class = forms.DateRangeSearchForm
+
+    def create_response(self):
+        return super(SuchseiteView, self).create_response()
 
     def get_queryset(self):
         queryset = super(SuchseiteView, self).get_queryset()
@@ -219,18 +220,8 @@ class SuchseiteView(SearchView):
         context['title'] = 'Daten durchsuchen'
         context['year'] = datetime.now().year
         context['nbar'] = 'suchseite'
+        if context['query']:
+            qlog = Suchanfrage(querystring = context['query'],
+                               results = context['paginator'].count)
+            qlog.save()
         return context
-
-
-#import simplejson as json
-#from django.http import HttpResponse
-#from haystack.query import SearchQuerySet
-#def autocomplete(request):
-#    sqs = SearchQuerySet().autocomplete(content_auto=request.GET.get('q', ''))[:5]
-#    suggestions = [result.title for result in sqs]
-#    # Make sure you return a JSON object, not a bare list.
-#    # Otherwise, you could be vulnerable to an XSS attack.
-#    the_data = json.dumps({
-#        'results': suggestions
-#    })
-#    return HttpResponse(the_data, content_type='application/json')
