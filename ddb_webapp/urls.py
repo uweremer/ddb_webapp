@@ -20,7 +20,7 @@ import baseapp.views
 
 from django.conf import settings
 from django.contrib.staticfiles.urls import static
-
+from django.contrib.auth import views
 
 urlpatterns = [
     path('', baseapp.views.home, name='home'),
@@ -31,6 +31,8 @@ urlpatterns = [
     path('auswertungen/', include('ddb_showcase.urls_auswertungen')),
     path('daten/', include('ddb_showcase.urls_daten')),
     path('basisdaten/', include('basisdaten.urls')),
+    path('login/', views.LoginView.as_view(template_name='baseapp/login.html'), name='login'),
+    path('logout', views.LogoutView.as_view(), name='logout'),
 ]
 
 

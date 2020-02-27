@@ -1,4 +1,4 @@
-{% extends "app/layout.html" %}
+{% extends "baseapp/layout.html" %}
 
 {% block content %}
 
@@ -25,7 +25,7 @@
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
                         <input type="hidden" name="next" value="{{ request.GET.next }}" />
-                        <input type="submit" value="Anmelden" class="btn btn-default" />
+                        <input type="submit" value="Anmelden" class="btn btn-success" />
                     </div>
                 </div>
                 {% if form.errors %}
@@ -44,7 +44,7 @@
 
 {% block scripts %}
 
-    {% load staticfiles %}
+    {% load static %}
 <script src="{% static 'app/scripts/jquery.validate.min.js' %}"></script>
 
 {% endblock %}

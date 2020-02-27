@@ -13,6 +13,7 @@
     <link rel="apple-touch-icon" href="{% static '/graphics/favicon.ico' %}"/>
     <meta name="description" content="Daten zu B&uuml;rgerbeteiligung, deliberativer und partizipativer Demokratie in den St&auml;dten und Gemeinden in Baden-W&uuml;rttemberg aus dem Forschungsprojekt Datenbank dialogorientierte Beteiligungsverfahren">
     <meta name="keywords" content="B&uuml;rgerbeteiliugung, Demokratie, Baden-W&uuml;rttemberg, Daten, Datenbank, Deliberation, Partizipation, Politikwissenaschat, Universität Stuttgart, Beteiligung" />
+    {% block extrahead %}{% endblock %}
 </head>
 
 <body>
@@ -43,11 +44,28 @@
       </li>
 
     </ul>
-    <ul class="navbar-nav justify-content-right">
-    <li class="nav-item" id="login-btn">
-        <a href="#" class="nav-link" data-toggle="modal" data-target="#"><span class="fa fa-sign-in"></span> Log In </a>
-    </li>
-    </ul
+   
+    {% if user.is_authenticated %}
+             {% csrf_token %}
+
+        <form id="logoutForm" action="/logout" method="post" class="navbar-form my-auto">
+        <ul class="navbar-nav justify-content-right">
+        <li class="navbar-text"><span>Hallo {{ user.first_name }} {{ user.last_name }}!</span></li>
+        <li class="nav-item" id="logout-btn"><a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()"><span class="fa fa-sign-out"></span> Abmelden</a></li>
+      </ul>
+           </form>
+
+
+
+{% else %}
+
+<ul class="navbar-nav justify-content-right">
+    <li class="nav-item" id="login-btn"><a class="nav-link" href="{% url 'login' %}"><span class="fa fa-sign-in"></span> Intern</a></li>
+</ul>
+
+{% endif %}
+
+
   </div>
 </div>
 </nav>

@@ -305,4 +305,4 @@ class Suchanfrage(models.Model):
         verbose_name_plural = 'Suchanfragen'
 
     def __str__(self):
-        return '%s' % (self.querystring)
+        return '%s, %s' % (self.querystring, self. results)

@@ -1,5 +1,4 @@
 User-agent: *
-Disallow: /Daten/
 Disallow: /*.xls$
 Disallow: /*.xlsx$
 
