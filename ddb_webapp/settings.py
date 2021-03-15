@@ -121,7 +121,7 @@ DATABASES = {
         'NAME': CRED[4],
         'USER': CRED[5],
         'PASSWORD': CRED[6],
-        'HOST': 'localhost',
+        'HOST': CRED[7],
         'PORT': '',
     },
 }
