@@ -50,6 +50,16 @@ The `settings.py` reads the information from a `.credentials` file. The structur
 7. Setup Apache server with mod_wsgi (see [Django-docs](https://docs.djangoproject.com/en/3.0/howto/deployment/wsgi/modwsgi/) and e.g. this [tutorial](https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-apache-and-mod_wsgi-on-ubuntu-14-04))  
 
 
+Add a script to anonymize log files from ZENDAS: https://www.zendas.de/technik/sicherheit/apache/index.html in folder `/usr/local/bin/aplog-anon`
+
+Make script executable
+```
+sudo chown centos:centos /usr/local/bin/aplog-anon
+sudo chmod 0700 /usr/local/bin/aplog-anon
+
+```
+
+
 All done...
 
 # Staticfiles
