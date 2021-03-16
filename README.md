@@ -58,14 +58,18 @@ make
 sudo make install
 ```
 
-Add a script to anonymize log files from ZENDAS: https://www.zendas.de/technik/sicherheit/apache/index.html in folder `/usr/local/bin/aplog-anon`
+8. Modify the /etc/httpd/conf/httpd.conf file. 
+
+
+9. Add a script to anonymize log files from ZENDAS: https://www.zendas.de/technik/sicherheit/apache/index.html in folder `/usr/local/bin/aplog-anon`
 
 Make script executable
 ```
 sudo chown centos:centos /usr/local/bin/aplog-anon
 sudo chmod 0700 /usr/local/bin/aplog-anon
-
 ```
+
+
 
 
 All done...
