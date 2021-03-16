@@ -47,8 +47,16 @@ The webapp was developed and tested for the following setup:
 The `settings.py` reads the information from a `.credentials` file. The structure of the file is given in the `credentials_template.txt`. The a `.credentials` must never be under version control or shared otherwise!
 5. Create database, then migrate and populate the database 
 6. Check privacy statement to match scope of the webapp and its conformity to the General Data Protection Regulation (GDPR).  
-7. Setup Apache server with mod_wsgi (see [Django-docs](https://docs.djangoproject.com/en/3.0/howto/deployment/wsgi/modwsgi/) and e.g. this [tutorial](https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-apache-and-mod_wsgi-on-ubuntu-14-04))  
 
+7. Setup Apache server with mod_wsgi (see [Django-docs](https://docs.djangoproject.com/en/3.0/howto/deployment/wsgi/modwsgi/) and e.g. this [tutorial](https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-apache-and-mod_wsgi-on-ubuntu-14-04))  
+It is crucial to compile the mod_wsgi packgae from source against the Python installation in the virtual environment (see [here](https://modwsgi.readthedocs.io/en/master/user-guides/quick-installation-guide.html#apache-requirements)).
+
+```
+./configure --with-apxs=/usr/bin/apxs \
+  --with-python=/home/centos/ddb_webapp/env/bin/python3.6
+make 
+sudo make install
+```
 
 Add a script to anonymize log files from ZENDAS: https://www.zendas.de/technik/sicherheit/apache/index.html in folder `/usr/local/bin/aplog-anon`
 
@@ -62,11 +70,29 @@ sudo chmod 0700 /usr/local/bin/aplog-anon
 
 All done...
 
-# Staticfiles
+# Manual configurations
+
+## Staticfiles
 
 To collect the static files for deployment with httpd, use the `collectstatic` function from within the virtual environment, in the folder where the `manage.py` lives in: `python manage.py collectstatic`.
 
 This collects all necessary static files for the admin, as well as those from the `staticfiles` folder and collects it within the `deploy` folder, which then has to be served by the httpd server. Jquery and Bootstrap for the non-Admin sites are served via CDN and are not to be included in the staticfiles.
+
+
+## Whoosh index
+
+Rebuild the index for fulltext search
+```
+manage.py rebuild_index
+```
+
+## Coat of Arms of the municipalities
+Upload and untar the `wappen.tar` file under the `project root folder/media/`: 
+
+```
+tar xvf wappen.tar 
+```
+
 
 # Devel and productive modes
 
