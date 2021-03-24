@@ -122,7 +122,7 @@ DATABASES = {
         'USER': CRED[5],
         'PASSWORD': CRED[6],
         'HOST': CRED[7],
-        'PORT': '',
+        'PORT': CRED[8],
     },
 }
 
