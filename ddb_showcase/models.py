@@ -202,7 +202,7 @@ class Beteiligungsereignis_Abstract(BeteiligungsEintrag):
     anzahl_teilnehmer_quantifiziert = models.IntegerField(blank=True, null=True, help_text="Quantitativ: bitte als mindest-Anzahl angeben ('Dutzend' = 12, 'über 50' = 50, 'rund 300' =300)")
     formell = models.BooleanField(help_text="Handelt es sich um ein gesetzlich vorgeschriebenes Verfahren oer folgt es gesetzlich vorgeschriebenen Abläufen (z.B. Bürgerentscheid)")
     online_komponente = models.BooleanField(help_text="Gibt es eine Online-Komponente?")
-    zufallsauswahl = models.NullBooleanField(help_text="Gibt es eine (teilweise) Zufallsauswahl der Bürger?")
+    zufallsauswahl = models.BooleanField(null=True, help_text="Gibt es eine (teilweise) Zufallsauswahl der Bürger?")
     entscheidung = models.TextField(blank=True, max_length=1000, help_text="Gab/Gibt es ein Ergebnis der Beteiligung? Wie sieht das aus? Wann wurde das umgesetzt? Etc.")
 
     art_der_beteiligung = models.CharField(max_length=1, verbose_name="Art der Beteiligung", choices=BETEILIGUNG_ART_CHOICE, default=0, help_text = "Kodieren auf Basis der Beschreibung")
