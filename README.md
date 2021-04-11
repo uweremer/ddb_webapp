@@ -117,7 +117,7 @@ Send E-Mail	| redirect to file backend | send regular
 
 
 ## mysqlclient
-If the `mysqlclient` for python does not install correctly (on windows machines), follow this solution: https://stackoverflow.com/a/33544958
+If the `mysqlclient` for python does not install correctly (on windows machines), follow this solution: https://stackoverflow.com/a/33544958, https://stackoverflow.com/questions/21440230/install-mysql-python-windows, for Mariadb gcc error: https://github.com/r-dbi/RMySQL/issues/197
 
 
 
